@@ -88,6 +88,6 @@ export const rooferPro: LayoutPreset = {
     radius: "sharp",
     density: "comfortable",
     font: { heading: "Inter", body: "Inter" },
-    mode: "dark",
+    mode: "light",
   },
 };
