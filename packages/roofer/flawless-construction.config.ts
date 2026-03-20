@@ -244,7 +244,7 @@ export const flawlessConstructionConfig = {
     submitLabel: "Request Free Inspection",
     submittingLabel: "Sending...",
     successTitle: "Inspection Request Sent!",
-    successMessage: "We will reach out within 24 hours to schedule your free roof inspection.",
+    successMessage: "We will reach out soon to schedule your free roof inspection.",
     sendAnother: "Submit Another Request",
   },
 

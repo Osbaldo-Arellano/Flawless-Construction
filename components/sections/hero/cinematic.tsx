@@ -514,7 +514,7 @@ export function HeroCinematic() {
                             Request received!
                           </p>
                           <p className="text-sm text-gray-500 mt-1">
-                            We will reach out within a few hours.
+                            We will reach out soon.
                           </p>
                         </div>
                         <a

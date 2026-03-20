@@ -47,6 +47,7 @@ export function RoofChatWidget() {
   const [formData, setFormData] = useState({ name: "", email: "" });
   const [inputVal, setInputVal] = useState("");
   const [openedAt] = useState(() => Date.now());
+  const suppressFocusRef = useRef(false);
 
   const msgIdRef = useRef(0);
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -57,9 +58,13 @@ export function RoofChatWidget() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // Focus input when entering collect flow
+  // Focus input when entering collect flow — but not on panel open
   useEffect(() => {
     if (flow === "collect") {
+      if (suppressFocusRef.current) {
+        suppressFocusRef.current = false;
+        return;
+      }
       setTimeout(() => inputRef.current?.focus(), 100);
     }
   }, [flow, collectStep]);
@@ -77,6 +82,7 @@ export function RoofChatWidget() {
 
   // ── Open / close ──────────────────────────────────────────────────────────
   function handleOpen() {
+    suppressFocusRef.current = true;
     setOpen(true);
 
     // Greeting message on first open
@@ -221,12 +227,24 @@ export function RoofChatWidget() {
       {open && (
         <div
           className="fixed right-12 z-[60] w-[calc(100vw-4rem)] max-w-[380px] flex flex-col  border border-border bg-background shadow-2xl overflow-hidden"
-          style={{ top: "50%", animation: "chatSlideIn 0.25s cubic-bezier(0.22,1,0.36,1) forwards" }}
+          style={{
+            top: "50%",
+            animation: "chatSlideIn 0.25s cubic-bezier(0.22,1,0.36,1) forwards",
+          }}
         >
           {/* Header */}
           <div className="flex items-center gap-3 px-4 py-3 bg-primary text-primary-foreground shrink-0">
-            <div className="w-9 h-9  bg-white/15 flex items-center justify-center shrink-0">
-              <span className="text-[9px] font-bold uppercase tracking-widest leading-none" style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}>Chat</span>
+            <div className="w-9 h-9  bg-white/15 flex items-center justify-center shrink-0 overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={
+                  brand.assets.logo.icon ||
+                  brand.assets.logo.uploaded ||
+                  brand.assets.logo.light
+                }
+                alt={brand.company.name}
+                className="w-7 h-7 object-contain"
+              />
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-bold leading-none truncate">
@@ -234,7 +252,7 @@ export function RoofChatWidget() {
               </p>
               <p className="text-[11px] opacity-70 mt-0.5 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5  bg-green-400 inline-block shrink-0" />
-                Typically replies in minutes
+                We'll get back to you ASAP
               </p>
             </div>
             <div className="flex items-center gap-1">
@@ -392,9 +410,7 @@ export function RoofChatWidget() {
       )}
 
       {/* ── Trigger button ─────────────────────────────────────────────── */}
-      <div
-        className="fixed right-0 z-[60] top-[75%]"
-      >
+      <div className="fixed right-0 z-[60] top-[75%]">
         {/* Pulsating rings — only when closed */}
         {!open && (
           <>
@@ -422,7 +438,10 @@ export function RoofChatWidget() {
           ) : (
             <span
               className="text-[7px] sm:text-[10px] font-bold uppercase tracking-widest leading-none"
-              style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+              style={{
+                writingMode: "vertical-rl",
+                transform: "rotate(180deg)",
+              }}
             >
               Question?
             </span>
