@@ -107,7 +107,7 @@ export const brandConfig = {
   // ABOUT US SECTION
   // ============================================
   about: {
-    headline: "Family-Owned. Built on Trust.",
+    headline: "Family-Owned.",
     subheadline: "Rene Morales founded Flawless Construction and Roofing to do one thing: give Oregon homeowners a contractor they can count on.",
     description:
       "Flawless Construction and Roofing is a family business. Rene Morales built this company on the belief that every homeowner deserves clear communication, certified craftsmanship, and a roof that holds up. We earned our CertainTeed ShingleMaster credential, became a Trade Ally of the Energy Trust of Oregon, and partnered with OHCS and HARP because we're not just here to install roofs — we're here to help our community.",

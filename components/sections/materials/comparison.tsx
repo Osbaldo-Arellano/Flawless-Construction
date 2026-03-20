@@ -118,7 +118,7 @@ export function MaterialsComparison() {
           <AnimateOnScroll animation="fade-up" delay={100} triggerOnce={false}>
             <div
               className="relative rounded-2xl border border-border bg-muted/30 overflow-hidden
-                         h-[360px] sm:h-[380px] lg:h-[420px]
+                         min-h-[360px] sm:min-h-[380px] lg:h-[420px]
                          flex flex-col p-5 sm:p-7 lg:p-10"
             >
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
@@ -140,11 +140,11 @@ export function MaterialsComparison() {
               {/* Scrollable content — fills remaining space, clips at the fixed boundary */}
               <div
                 key={`body-${active}`}
-                className="flex-1 overflow-hidden flex flex-col gap-3 min-h-0"
+                className="lg:flex-1 lg:overflow-hidden flex flex-col gap-3 lg:min-h-0"
                 style={{ animation: "fadeSlideIn 0.25s ease-out" }}
               >
                 {/* Description */}
-                <p className="text-sm lg:text-base text-muted-foreground leading-relaxed line-clamp-3">
+                <p className="text-sm lg:text-base text-muted-foreground leading-relaxed lg:line-clamp-3">
                   {current.description}
                 </p>
 
@@ -154,7 +154,7 @@ export function MaterialsComparison() {
                     {points.map((point, i) => (
                       <div key={i} className="flex items-start gap-3">
                         <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                        <span className="text-sm text-foreground/80 leading-snug line-clamp-2">
+                        <span className="text-sm text-foreground/80 leading-snug lg:line-clamp-2">
                           {point}
                         </span>
                       </div>
