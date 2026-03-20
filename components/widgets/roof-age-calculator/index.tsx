@@ -227,7 +227,7 @@ export function RoofAgeCalculator() {
       >
         <button
           onClick={() => setOpen((o) => !o)}
-          className="relative w-7 h-12 sm:w-12 sm:h-20   bg-primary text-primary-foreground shadow-xl hover:shadow-primary/40 active:scale-95 transition-all duration-200 flex items-center justify-center"
+          className="relative w-7 h-12 sm:w-12 sm:h-20 rounded-l-lg  bg-primary text-primary-foreground shadow-xl hover:shadow-primary/40 active:scale-95 transition-all duration-200 flex items-center justify-center"
           aria-label={open ? "Close calculator" : "Roof age calculator"}
         >
           {open ? (

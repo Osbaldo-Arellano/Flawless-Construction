@@ -7,7 +7,8 @@
       "Bash(git commit:*)",
       "Bash(xargs perl:*)",
       "Bash(grep -r \"\\\\-\\\\-radius\\\\|borderRadius\" D:/BrandSyncV2 --include=*.css --include=*.ts --include=*.js --include=*.mjs -l)",
-      "Bash(grep -rl \"\\\\-\\\\-radius\\\\|borderRadius\" /d/BrandSyncV2 --include=*.css --include=*.ts --include=*.js --include=*.mjs)"
+      "Bash(grep -rl \"\\\\-\\\\-radius\\\\|borderRadius\" /d/BrandSyncV2 --include=*.css --include=*.ts --include=*.js --include=*.mjs)",
+      "Bash(grep -rn \"QUESTIONS\\\\|MY ROOF\" D:/BrandSyncV2/ --include=*.tsx --include=*.ts --include=*.jsx --include=*.js)"
     ]
   }
 }
