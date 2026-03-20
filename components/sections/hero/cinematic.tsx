@@ -47,6 +47,7 @@ export function HeroCinematic() {
   const imageRef = useRef<HTMLDivElement>(null);
 
   const [mounted, setMounted] = useState(false);
+  const [cardSlideIn, setCardSlideIn] = useState(false);
   const [textRevealed, setTextRevealed] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
@@ -61,6 +62,16 @@ export function HeroCinematic() {
   const formLoadedAt = useRef(Date.now());
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const [headlineHeight, setHeadlineHeight] = useState(0);
+
+  useEffect(() => {
+    // Double RAF ensures the browser paints the off-screen state before
+    // transitioning — without this, React batches the state update and the
+    // browser never renders the initial translate: 72px position.
+    const raf1 = requestAnimationFrame(() => {
+      requestAnimationFrame(() => setCardSlideIn(true));
+    });
+    return () => cancelAnimationFrame(raf1);
+  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -282,6 +293,15 @@ export function HeroCinematic() {
             <div
               ref={mobileLogoRef}
               className="relative flex-1 flex flex-col justify-between lg:justify-center gap-6 lg:gap-8 px-4 py-5 lg:px-0 lg:py-0 bg-gradient-to-br from-white to-gray-50/80 lg:bg-none lg:bg-transparent  lg:rounded-none shadow-2xl lg:shadow-none overflow-hidden lg:overflow-visible"
+              style={
+                !isDesktop
+                  ? {
+                      translate: cardSlideIn ? "0px" : "125%",
+                      transition:
+                        "translate 2.1s cubic-bezier(0.22, 1, 0.36, 1)",
+                    }
+                  : undefined
+              }
             >
               {/* Mobile accent bar — matches estimate form */}
               <div className="lg:hidden absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary/80 to-primary/60" />
@@ -301,7 +321,9 @@ export function HeroCinematic() {
                       ? "all 1s cubic-bezier(0.22, 1, 0.36, 1)"
                       : "opacity 0.6s ease-out, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)",
                     height: isDesktop
-                      ? headlineHeight > 0 ? headlineHeight * 0.85 : undefined
+                      ? headlineHeight > 0
+                        ? headlineHeight * 0.85
+                        : undefined
                       : 120,
                   }}
                 >
@@ -346,11 +368,15 @@ export function HeroCinematic() {
               <p
                 className="text-sm sm:text-base lg:text-lg font-medium text-gray-500 lg:text-white max-w-xl leading-relaxed transition-all duration-1000 ease-out lg:[text-shadow:none]"
                 style={{
-                  opacity: textRevealed ? 1 : 0,
-                  transform: textRevealed
-                    ? "translateY(0)"
-                    : "translateY(20px)",
-                  transitionDelay: `${headlineWords.length * 120 + 200}ms`,
+                  opacity: isDesktop ? (textRevealed ? 1 : 0) : 1,
+                  transform: isDesktop
+                    ? textRevealed
+                      ? "translateY(0)"
+                      : "translateY(20px)"
+                    : "translateY(0)",
+                  transitionDelay: isDesktop
+                    ? `${headlineWords.length * 120 + 200}ms`
+                    : "0ms",
                 }}
               >
                 {brand.hero.subheadline}
@@ -456,6 +482,13 @@ export function HeroCinematic() {
                   ? "translateY(0) translateX(0)"
                   : "translateY(30px) translateX(20px)",
                 transitionDelay: "800ms",
+                ...(!isDesktop
+                  ? {
+                      translate: cardSlideIn ? "0px" : "-100%",
+                      transition:
+                        "translate 2.1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s",
+                    }
+                  : {}),
               }}
             >
               {brand.hero.overlayCard.type === "estimate-form" ? (
