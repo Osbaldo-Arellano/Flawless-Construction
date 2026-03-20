@@ -143,7 +143,7 @@ export default async function RootLayout({
   const defaultTheme = mode === "system" ? "system" : mode;
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={mode === "dark" ? "dark" : "light"}>
       <head>
         {/* Inject primary color before paint to eliminate color flash */}
         <style dangerouslySetInnerHTML={{ __html: `:root { --primary: ${primaryColor}; }` }} />
@@ -152,8 +152,7 @@ export default async function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme={defaultTheme}
-          forcedTheme={mode !== "system" ? mode : undefined}
-          enableSystem={mode === "system"}
+          enableSystem={false}
           disableTransitionOnChange
         >
           <BrandProvider initialData={serverData?.initialData}>
