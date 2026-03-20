@@ -152,7 +152,8 @@ export default async function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme={defaultTheme}
-          enableSystem={false}
+          forcedTheme={mode !== "system" ? mode : undefined}
+          enableSystem={mode === "system"}
           disableTransitionOnChange
         >
           <BrandProvider initialData={serverData?.initialData}>
