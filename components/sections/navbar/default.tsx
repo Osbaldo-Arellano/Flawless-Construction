@@ -258,7 +258,7 @@ export function NavbarDefault() {
           mobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-background/90 backdrop-blur-xl border-b border-border/40 shadow-xl ">
+        <div className="relative bg-white shadow-xl">
           <div className="container mx-auto px-4 pt-2 pb-5 space-y-1">
             {brand.navigation.links.map((link, i) => (
               <Link
@@ -278,6 +278,8 @@ export function NavbarDefault() {
               </Link>
             ))}
           </div>
+          {/* Bottom accent bar — matches Free Estimate form */}
+          <div className="h-1 w-full bg-gradient-to-r from-primary via-primary/80 to-primary/60" />
         </div>
       </div>
     </header>
