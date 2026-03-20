@@ -89,7 +89,7 @@ export function ContactSplitForm() {
                 backgroundSize: "48px 48px",
               }}
             />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-primary/20  blur-3xl pointer-events-none" />
 
             <AnimateOnScroll animation="fade-up" triggerOnce={false}>
               <div className="relative space-y-8">
@@ -142,7 +142,7 @@ export function ContactSplitForm() {
             <AnimateOnScroll animation="fade-up" triggerOnce={false}>
               {submitted ? (
                 <div className="flex flex-col items-center justify-center text-center py-12 h-full">
-                  <div className="w-14 h-14 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-5">
+                  <div className="w-14 h-14  bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-5">
                     <Send className="w-7 h-7 text-green-600 dark:text-green-400" />
                   </div>
                   <h3 className="text-2xl font-bold mb-2">Message Sent!</h3>

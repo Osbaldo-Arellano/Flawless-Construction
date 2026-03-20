@@ -73,10 +73,10 @@ export function SocialProofToasts() {
         pointerEvents: visible ? "auto" : "none",
       }}
     >
-      <div className="bg-background border border-border rounded-2xl shadow-xl p-4">
+      <div className="bg-background border border-border  shadow-xl p-4">
         <div className="flex items-start gap-3">
           {/* Avatar */}
-          <div className="w-9 h-9 rounded-full bg-primary/10 text-primary text-sm font-bold flex items-center justify-center shrink-0">
+          <div className="w-9 h-9  bg-primary/10 text-primary text-sm font-bold flex items-center justify-center shrink-0">
             {review.reviewer_name.charAt(0).toUpperCase()}
           </div>
 

@@ -123,7 +123,7 @@ function GalleryPageInner() {
           <button
             onClick={() => setShowGrid((v) => !v)}
             className={cn(
-              "flex items-center gap-2 text-sm px-3 py-1.5 rounded-full border transition-colors",
+              "flex items-center gap-2 text-sm px-3 py-1.5  border transition-colors",
               showGrid ? "bg-white/10 border-white/20 text-white" : "border-white/10 text-white/60 hover:text-white hover:border-white/20",
             )}
           >
@@ -141,7 +141,7 @@ function GalleryPageInner() {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={cn(
-                  "shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-colors border",
+                  "shrink-0 px-4 py-1.5  text-sm font-medium transition-colors border",
                   activeCategory === cat ? "bg-white text-black border-white" : "border-white/10 text-white/60 hover:text-white hover:border-white/30",
                 )}
               >
@@ -157,7 +157,7 @@ function GalleryPageInner() {
                   key={i}
                   onClick={() => { goTo(globalIndex); setShowGrid(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
                   className={cn(
-                    "group relative block w-full break-inside-avoid overflow-hidden rounded-lg transition-all duration-300 hover:ring-2 hover:ring-white/40",
+                    "group relative block w-full break-inside-avoid overflow-hidden  transition-all duration-300 hover:ring-2 hover:ring-white/40",
                     globalIndex === index && "ring-2 ring-primary",
                   )}
                 >
@@ -173,10 +173,10 @@ function GalleryPageInner() {
           <div className="relative w-full touch-pan-y" onPointerDown={handlePointerDown} onPointerUp={handlePointerUp}>
             {total > 1 && (
               <>
-                <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 z-10 rounded-full bg-black/50 hover:bg-black/70 border border-white/10 p-2 text-white transition-colors hidden sm:flex" aria-label="Previous">
+                <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 z-10  bg-black/50 hover:bg-black/70 border border-white/10 p-2 text-white transition-colors hidden sm:flex" aria-label="Previous">
                   <ChevronLeft className="w-5 h-5" />
                 </button>
-                <button onClick={next} className="absolute right-3 top-1/2 -translate-y-1/2 z-10 rounded-full bg-black/50 hover:bg-black/70 border border-white/10 p-2 text-white transition-colors hidden sm:flex" aria-label="Next">
+                <button onClick={next} className="absolute right-3 top-1/2 -translate-y-1/2 z-10  bg-black/50 hover:bg-black/70 border border-white/10 p-2 text-white transition-colors hidden sm:flex" aria-label="Next">
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </>
@@ -193,7 +193,7 @@ function GalleryPageInner() {
                 alt={item.title}
                 width={1600}
                 height={1200}
-                className={cn("max-w-full max-h-[50vh] sm:max-h-[75vh] w-auto h-auto object-contain rounded-lg transition-opacity duration-300 cursor-zoom-in", imageLoaded ? "opacity-100" : "opacity-0")}
+                className={cn("max-w-full max-h-[50vh] sm:max-h-[75vh] w-auto h-auto object-contain  transition-opacity duration-300 cursor-zoom-in", imageLoaded ? "opacity-100" : "opacity-0")}
                 sizes="100vw"
                 priority
                 onLoad={() => setImageLoaded(true)}
@@ -212,7 +212,7 @@ function GalleryPageInner() {
                     key={i}
                     ref={(el) => { thumbRefs.current[i] = el; }}
                     onClick={() => goTo(i)}
-                    className={cn("relative shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-md overflow-hidden transition-all duration-200", i === index ? "ring-2 ring-white ring-offset-2 ring-offset-black opacity-100" : "opacity-40 hover:opacity-70")}
+                    className={cn("relative shrink-0 w-14 h-14 sm:w-16 sm:h-16  overflow-hidden transition-all duration-200", i === index ? "ring-2 ring-white ring-offset-2 ring-offset-black opacity-100" : "opacity-40 hover:opacity-70")}
                     aria-label={`View ${thumbItem.title}`}
                   >
                     <Image src={thumbItem.image} alt={thumbItem.title} fill className="object-cover" sizes="64px" />

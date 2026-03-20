@@ -25,8 +25,8 @@ export function WarrantyDefault() {
           backgroundSize: "48px 48px",
         }}
       />
-      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/15 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/15  blur-[120px] pointer-events-none" />
+      <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-primary/10  blur-[100px] pointer-events-none" />
 
       <div className="container relative mx-auto px-4">
 
@@ -55,12 +55,12 @@ export function WarrantyDefault() {
 
           {/* Manufacturer warranty */}
           <AnimateOnScroll animation="fade-up" delay={0} triggerOnce={false}>
-            <div className="group relative rounded-2xl border border-background/10 bg-background/5 hover:bg-background/8 p-8 lg:p-10 transition-colors duration-300 overflow-hidden">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="group relative  border border-background/10 bg-background/5 hover:bg-background/8 p-8 lg:p-10 transition-colors duration-300 overflow-hidden">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10  blur-3xl pointer-events-none" />
 
               <div className="relative">
                 <div className="flex items-start justify-between mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/15 flex items-center justify-center">
+                  <div className="w-14 h-14  bg-primary/15 flex items-center justify-center">
                     <Award className="w-7 h-7 text-primary" />
                   </div>
                   <div className="text-right">
@@ -80,7 +80,7 @@ export function WarrantyDefault() {
                   {certBadges.map((cert) => (
                     <span
                       key={cert}
-                      className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide px-3 py-1.5 rounded-full bg-background/10 text-background/70 border border-background/10"
+                      className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide px-3 py-1.5  bg-background/10 text-background/70 border border-background/10"
                     >
                       <BadgeCheck className="w-3 h-3 text-primary" />
                       {cert}
@@ -93,12 +93,12 @@ export function WarrantyDefault() {
 
           {/* Workmanship warranty */}
           <AnimateOnScroll animation="fade-up" delay={100} triggerOnce={false}>
-            <div className="group relative rounded-2xl border border-primary/30 bg-primary/10 hover:bg-primary/15 p-8 lg:p-10 transition-colors duration-300 overflow-hidden">
-              <div className="absolute bottom-0 left-0 w-40 h-40 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="group relative  border border-primary/30 bg-primary/10 hover:bg-primary/15 p-8 lg:p-10 transition-colors duration-300 overflow-hidden">
+              <div className="absolute bottom-0 left-0 w-40 h-40 bg-primary/20  blur-3xl pointer-events-none" />
 
               <div className="relative">
                 <div className="flex items-start justify-between mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center">
+                  <div className="w-14 h-14  bg-primary/20 flex items-center justify-center">
                     <ShieldCheck className="w-7 h-7 text-primary" />
                   </div>
                   <div className="text-right">

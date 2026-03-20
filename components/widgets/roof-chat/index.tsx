@@ -222,12 +222,12 @@ export function RoofChatWidget() {
       {/* ── Chat panel ─────────────────────────────────────────────────── */}
       {open && (
         <div
-          className="fixed right-12 z-[60] w-[calc(100vw-4rem)] max-w-[380px] flex flex-col rounded-2xl border border-border bg-background shadow-2xl overflow-hidden"
+          className="fixed right-12 z-[60] w-[calc(100vw-4rem)] max-w-[380px] flex flex-col  border border-border bg-background shadow-2xl overflow-hidden"
           style={{ top: "50%", animation: "chatSlideIn 0.25s cubic-bezier(0.22,1,0.36,1) forwards" }}
         >
           {/* Header */}
           <div className="flex items-center gap-3 px-4 py-3 bg-primary text-primary-foreground shrink-0">
-            <div className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
+            <div className="w-9 h-9  bg-white/15 flex items-center justify-center shrink-0">
               <span className="text-[9px] font-bold uppercase tracking-widest leading-none" style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}>Chat</span>
             </div>
             <div className="flex-1 min-w-0">
@@ -235,7 +235,7 @@ export function RoofChatWidget() {
                 {brand.company.name}
               </p>
               <p className="text-[11px] opacity-70 mt-0.5 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block shrink-0" />
+                <span className="w-1.5 h-1.5  bg-green-400 inline-block shrink-0" />
                 Typically replies in minutes
               </p>
             </div>
@@ -243,7 +243,7 @@ export function RoofChatWidget() {
               {(flow === "success" || flow === "error") && (
                 <button
                   onClick={handleReset}
-                  className="p-1.5 rounded-lg hover:bg-white/10 transition-colors"
+                  className="p-1.5  hover:bg-white/10 transition-colors"
                   aria-label="Start over"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
@@ -251,7 +251,7 @@ export function RoofChatWidget() {
               )}
               <button
                 onClick={handleClose}
-                className="p-1.5 rounded-lg hover:bg-white/10 transition-colors"
+                className="p-1.5  hover:bg-white/10 transition-colors"
                 aria-label="Close chat"
               >
                 <X className="w-4 h-4" />
@@ -268,11 +268,11 @@ export function RoofChatWidget() {
               >
                 <div
                   className={`
-                    max-w-[82%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed
+                    max-w-[82%] px-3.5 py-2.5  text-sm leading-relaxed
                     ${
                       msg.from === "bot"
-                        ? "bg-muted text-foreground rounded-tl-sm"
-                        : "bg-primary text-primary-foreground rounded-tr-sm"
+                        ? "bg-muted text-foreground "
+                        : "bg-primary text-primary-foreground "
                     }
                   `}
                 >
@@ -291,7 +291,7 @@ export function RoofChatWidget() {
                   <a
                     key={r.value}
                     href={`tel:${brand.company.phone.replace(/\D/g, "")}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                    className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5  border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
                   >
                     <Phone className="w-3 h-3" />
                     {brand.company.phone}
@@ -300,7 +300,7 @@ export function RoofChatWidget() {
                   <button
                     key={r.value}
                     onClick={() => handleQuickReply(r.label, r.value)}
-                    className="inline-flex items-center text-xs font-medium px-3 py-1.5 rounded-full border border-border hover:border-primary hover:text-primary transition-colors duration-200"
+                    className="inline-flex items-center text-xs font-medium px-3 py-1.5  border border-border hover:border-primary hover:text-primary transition-colors duration-200"
                   >
                     {r.label}
                   </button>
@@ -330,7 +330,7 @@ export function RoofChatWidget() {
                         ? "your@email.com"
                         : "Describe your situation..."
                   }
-                  className="flex-1 text-sm bg-muted rounded-xl px-3.5 py-2.5 outline-none border border-transparent focus:border-primary transition-colors placeholder:text-muted-foreground/60"
+                  className="flex-1 text-sm bg-muted  px-3.5 py-2.5 outline-none border border-transparent focus:border-primary transition-colors placeholder:text-muted-foreground/60"
                   autoComplete={
                     collectStep === "name"
                       ? "name"
@@ -342,7 +342,7 @@ export function RoofChatWidget() {
                 <button
                   type="submit"
                   disabled={!inputVal.trim()}
-                  className="w-10 h-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center hover:opacity-90 active:scale-95 disabled:opacity-30 transition-all shrink-0"
+                  className="w-10 h-10  bg-primary text-primary-foreground flex items-center justify-center hover:opacity-90 active:scale-95 disabled:opacity-30 transition-all shrink-0"
                   aria-label="Send"
                 >
                   <Send className="w-4 h-4" />
@@ -356,14 +356,14 @@ export function RoofChatWidget() {
             <div className="px-4 pb-4 pt-1 flex gap-2 shrink-0">
               <a
                 href={`tel:${brand.company.phone.replace(/\D/g, "")}`}
-                className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold py-2.5 rounded-xl border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold py-2.5  border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <Phone className="w-3.5 h-3.5" />
                 Call Now
               </a>
               <button
                 onClick={handleClose}
-                className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold py-2.5 rounded-xl bg-muted hover:bg-muted/70 transition-colors"
+                className="flex-1 flex items-center justify-center gap-1.5 text-xs font-semibold py-2.5  bg-muted hover:bg-muted/70 transition-colors"
               >
                 Close
                 <ArrowRight className="w-3 h-3" />
@@ -376,7 +376,7 @@ export function RoofChatWidget() {
             <div className="px-4 pb-4 pt-1 shrink-0">
               <a
                 href={`tel:${brand.company.phone.replace(/\D/g, "")}`}
-                className="flex w-full items-center justify-center gap-2 text-xs font-semibold py-2.5 rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
+                className="flex w-full items-center justify-center gap-2 text-xs font-semibold py-2.5  bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
               >
                 <Phone className="w-3.5 h-3.5" />
                 {brand.company.phone}
@@ -405,11 +405,11 @@ export function RoofChatWidget() {
         {!open && (
           <>
             <span
-              className="absolute inset-0 rounded-l-2xl bg-primary opacity-25"
+              className="absolute inset-0  bg-primary opacity-25"
               style={{ animation: "roofPulse 2.2s ease-out infinite" }}
             />
             <span
-              className="absolute inset-0 rounded-l-2xl bg-primary opacity-15"
+              className="absolute inset-0  bg-primary opacity-15"
               style={{
                 animation: "roofPulse 2.2s ease-out infinite",
                 animationDelay: "0.55s",
@@ -420,7 +420,7 @@ export function RoofChatWidget() {
 
         <button
           onClick={open ? handleClose : handleOpen}
-          className="relative w-7 h-12 sm:w-12 sm:h-20 rounded-l-xl sm:rounded-l-2xl bg-primary text-primary-foreground shadow-xl hover:shadow-primary/40 active:scale-95 transition-all duration-200 flex items-center justify-center"
+          className="relative w-7 h-12 sm:w-12 sm:h-20   bg-primary text-primary-foreground shadow-xl hover:shadow-primary/40 active:scale-95 transition-all duration-200 flex items-center justify-center"
           aria-label={open ? "Close chat" : "Chat with us"}
         >
           {open ? (

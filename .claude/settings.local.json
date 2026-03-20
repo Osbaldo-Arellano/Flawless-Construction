@@ -4,7 +4,10 @@
       "Bash(npx tsc:*)",
       "Bash(npm run:*)",
       "WebSearch",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(xargs perl:*)",
+      "Bash(grep -r \"\\\\-\\\\-radius\\\\|borderRadius\" D:/BrandSyncV2 --include=*.css --include=*.ts --include=*.js --include=*.mjs -l)",
+      "Bash(grep -rl \"\\\\-\\\\-radius\\\\|borderRadius\" /d/BrandSyncV2 --include=*.css --include=*.ts --include=*.js --include=*.mjs)"
     ]
   }
 }

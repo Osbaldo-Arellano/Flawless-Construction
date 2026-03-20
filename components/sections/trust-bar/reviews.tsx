@@ -42,7 +42,7 @@ function ReviewCard({
 }) {
   return (
     <div
-      className={`rounded-2xl border border-border bg-background p-6 flex flex-col gap-3 overflow-hidden ${CARD_H}`}
+      className={` border border-border bg-background p-6 flex flex-col gap-3 overflow-hidden ${CARD_H}`}
     >
       <svg
         viewBox="0 0 32 24"
@@ -58,7 +58,7 @@ function ReviewCard({
       </div>
       <div className="flex items-center justify-between gap-3 pt-3 border-t border-border shrink-0">
         <div className="flex items-center gap-2.5 min-w-0">
-          <div className="w-8 h-8 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center shrink-0">
+          <div className="w-8 h-8  bg-primary/10 text-primary text-xs font-bold flex items-center justify-center shrink-0">
             {review.reviewer_name.charAt(0).toUpperCase()}
           </div>
           <div className="min-w-0">
@@ -145,7 +145,7 @@ export function TrustBarReviews() {
             {[0, 1, 2].map((i) => (
               <div
                 key={i}
-                className={`rounded-2xl border border-border bg-muted/30 animate-pulse ${CARD_H}`}
+                className={` border border-border bg-muted/30 animate-pulse ${CARD_H}`}
               />
             ))}
           </div>
@@ -221,7 +221,7 @@ export function TrustBarReviews() {
             <button
               onClick={prev}
               aria-label="Previous reviews"
-              className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors"
+              className="w-9 h-9  border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -231,7 +231,7 @@ export function TrustBarReviews() {
             <button
               onClick={next}
               aria-label="Next reviews"
-              className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors"
+              className="w-9 h-9  border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors"
             >
               <ChevronRight className="w-4 h-4" />
             </button>

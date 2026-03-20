@@ -43,7 +43,7 @@ export function AboutStatsForward() {
 
         {/* Stats strip */}
         <AnimateOnScroll animation="fade-up" triggerOnce={false}>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-background/10 rounded-2xl overflow-hidden mb-20">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-background/10  overflow-hidden mb-20">
             {brand.hero.stats.map((stat, i) => (
               <div
                 key={stat.label}
@@ -68,7 +68,7 @@ export function AboutStatsForward() {
         </AnimateOnScroll>
 
         {/* Values grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-background/10 rounded-2xl overflow-hidden">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-background/10  overflow-hidden">
           {brand.about.values.map((value, i) => (
             <AnimateOnScroll
               key={value.title}

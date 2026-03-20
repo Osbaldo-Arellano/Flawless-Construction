@@ -59,7 +59,7 @@ function BeforeAfterSlider({
   return (
     <div
       ref={containerRef}
-      className="relative w-full aspect-[64/45] lg:aspect-[16/9] overflow-hidden rounded-2xl select-none touch-none cursor-col-resize"
+      className="relative w-full aspect-[64/45] lg:aspect-[16/9] overflow-hidden  select-none touch-none cursor-col-resize"
     >
       {/* After image */}
       <Image
@@ -90,17 +90,17 @@ function BeforeAfterSlider({
         style={{ left: `${position}%` }}
       >
         <div className="absolute inset-y-0 -translate-x-1/2 w-0.5 bg-white/90 shadow-lg" />
-        <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-xl flex items-center justify-center gap-0.5">
+        <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10  bg-white shadow-xl flex items-center justify-center gap-0.5">
           <ChevronLeft className="w-3.5 h-3.5 text-gray-600" />
           <ChevronRight className="w-3.5 h-3.5 text-gray-600" />
         </div>
       </div>
 
       {/* Labels */}
-      <span className="absolute top-3 left-3 z-20 px-2.5 py-1 rounded-full bg-black/60 text-white text-xs font-semibold backdrop-blur-sm pointer-events-none">
+      <span className="absolute top-3 left-3 z-20 px-2.5 py-1  bg-black/60 text-white text-xs font-semibold backdrop-blur-sm pointer-events-none">
         Before
       </span>
-      <span className="absolute top-3 right-3 z-20 px-2.5 py-1 rounded-full bg-black/60 text-white text-xs font-semibold backdrop-blur-sm pointer-events-none">
+      <span className="absolute top-3 right-3 z-20 px-2.5 py-1  bg-black/60 text-white text-xs font-semibold backdrop-blur-sm pointer-events-none">
         After
       </span>
 
@@ -150,7 +150,7 @@ function Pagination({
         <button
           onClick={() => goTo(page - 1)}
           disabled={page === 0}
-          className="p-2 rounded-lg border border-border hover:bg-muted disabled:opacity-30 disabled:pointer-events-none transition-colors"
+          className="p-2  border border-border hover:bg-muted disabled:opacity-30 disabled:pointer-events-none transition-colors"
           aria-label="Previous page"
         >
           <ChevronLeft className="w-4 h-4" />
@@ -170,7 +170,7 @@ function Pagination({
                 key={p}
                 onClick={() => goTo(p)}
                 className={cn(
-                  "w-7 h-7 sm:w-8 sm:h-8 rounded-lg text-xs sm:text-sm font-medium transition-all",
+                  "w-7 h-7 sm:w-8 sm:h-8  text-xs sm:text-sm font-medium transition-all",
                   p === page
                     ? "bg-primary text-primary-foreground"
                     : "hover:bg-muted text-muted-foreground",
@@ -187,7 +187,7 @@ function Pagination({
         <button
           onClick={() => goTo(page + 1)}
           disabled={page === totalPages - 1}
-          className="p-2 rounded-lg border border-border hover:bg-muted disabled:opacity-30 disabled:pointer-events-none transition-colors"
+          className="p-2  border border-border hover:bg-muted disabled:opacity-30 disabled:pointer-events-none transition-colors"
           aria-label="Next page"
         >
           <ChevronRight className="w-4 h-4" />
@@ -269,8 +269,8 @@ export function GalleryLightbox() {
   return (
     <section className="relative overflow-hidden py-20 lg:py-32 bg-muted/30">
       <div id="gallery" className="scroll-mt-28" />
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/10  blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/5  blur-3xl pointer-events-none" />
 
       <div className="container relative mx-auto px-4">
         <AnimateOnScroll animation="fade-up" triggerOnce={false}>
@@ -302,7 +302,7 @@ export function GalleryLightbox() {
 
           {hasVideos && (
             <div className="flex justify-center mb-12">
-              <div className="inline-flex rounded-lg bg-muted p-1">
+              <div className="inline-flex  bg-muted p-1">
                 {(["photos", "videos"] as GalleryTab[]).map((tab) => (
                   <button
                     key={tab}
@@ -311,7 +311,7 @@ export function GalleryLightbox() {
                       setPage(0);
                     }}
                     className={cn(
-                      "inline-flex items-center gap-2 px-6 py-2.5 rounded-md text-sm font-medium transition-all",
+                      "inline-flex items-center gap-2 px-6 py-2.5  text-sm font-medium transition-all",
                       activeTab === tab
                         ? "bg-background text-foreground shadow-sm"
                         : "text-muted-foreground hover:text-foreground",
@@ -348,7 +348,7 @@ export function GalleryLightbox() {
                     <Link
                       href={getGalleryHref(idx)}
                       className={cn(
-                        "group relative block w-full overflow-hidden rounded-lg bg-background border border-border/50 hover:border-primary/50 transition-colors text-left",
+                        "group relative block w-full overflow-hidden  bg-background border border-border/50 hover:border-primary/50 transition-colors text-left",
                         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2",
                       )}
                       aria-label={`View image: ${item.title}`}
@@ -362,7 +362,7 @@ export function GalleryLightbox() {
                           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-                        <div className="absolute top-3 right-3 rounded-full bg-black/50 p-2 text-white opacity-60 md:opacity-0 group-hover:opacity-100 scale-100 md:scale-75 group-hover:scale-100 transition-all duration-300">
+                        <div className="absolute top-3 right-3  bg-black/50 p-2 text-white opacity-60 md:opacity-0 group-hover:opacity-100 scale-100 md:scale-75 group-hover:scale-100 transition-all duration-300">
                           <Search className="w-4 h-4" />
                         </div>
                       </div>
@@ -385,7 +385,7 @@ export function GalleryLightbox() {
                 >
                   <Link
                     href={`/gallery/video?v=${index}`}
-                    className="group relative block overflow-hidden rounded-lg bg-background border border-border/50 hover:border-primary/50 transition-colors"
+                    className="group relative block overflow-hidden  bg-background border border-border/50 hover:border-primary/50 transition-colors"
                   >
                     <div className="aspect-[9/13] relative bg-black">
                       <video
@@ -396,7 +396,7 @@ export function GalleryLightbox() {
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                        <div className="w-16 h-16  bg-primary/90 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                           <Play className="w-8 h-8 text-primary-foreground ml-1" />
                         </div>
                       </div>

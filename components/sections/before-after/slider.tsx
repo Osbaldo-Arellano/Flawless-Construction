@@ -79,7 +79,7 @@ export function BeforeAfterSlider() {
         <AnimateOnScroll animation="fade-up" triggerOnce={false}>
           <div
             ref={containerRef}
-            className="relative select-none overflow-hidden rounded-2xl aspect-video max-w-5xl mx-auto shadow-2xl cursor-col-resize"
+            className="relative select-none overflow-hidden  aspect-video max-w-5xl mx-auto shadow-2xl cursor-col-resize"
             onMouseDown={(e) => { setIsDragging(true); updatePosition(e.clientX); }}
             onTouchStart={(e) => { setIsDragging(true); updatePosition(e.touches[0].clientX); }}
           >
@@ -92,7 +92,7 @@ export function BeforeAfterSlider() {
                 className="object-cover pointer-events-none"
                 draggable={false}
               />
-              <div className="absolute top-4 left-4 z-10 bg-black/70 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full">
+              <div className="absolute top-4 left-4 z-10 bg-black/70 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 ">
                 Before
               </div>
             </div>
@@ -109,7 +109,7 @@ export function BeforeAfterSlider() {
                 className="object-cover pointer-events-none"
                 draggable={false}
               />
-              <div className="absolute top-4 right-4 z-10 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full">
+              <div className="absolute top-4 right-4 z-10 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 ">
                 After
               </div>
             </div>
@@ -126,7 +126,7 @@ export function BeforeAfterSlider() {
 
             {/* Drag handle */}
             <div
-              className="absolute top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white flex items-center justify-center gap-px pointer-events-none transition-transform duration-150"
+              className="absolute top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 w-11 h-11  bg-white flex items-center justify-center gap-px pointer-events-none transition-transform duration-150"
               style={{
                 left: `${position}%`,
                 boxShadow: "0 4px 24px rgba(0,0,0,0.35)",
@@ -142,7 +142,7 @@ export function BeforeAfterSlider() {
               className="absolute inset-0 flex items-end justify-center pb-6 pointer-events-none z-10 transition-opacity duration-500"
               style={{ opacity: hasInteracted ? 0 : 1 }}
             >
-              <p className="text-white/70 text-xs font-medium tracking-widest uppercase bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+              <p className="text-white/70 text-xs font-medium tracking-widest uppercase bg-black/30 backdrop-blur-sm px-4 py-2 ">
                 Drag to compare
               </p>
             </div>

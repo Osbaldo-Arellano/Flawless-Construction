@@ -190,7 +190,7 @@ export function HeroSplit() {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent lg:from-background/80" />
 
         {/* Review badge floating */}
-        <div className="absolute bottom-8 left-8 bg-background/90 backdrop-blur-sm border border-border rounded-2xl p-4 shadow-xl max-w-[200px] transition-all duration-1000"
+        <div className="absolute bottom-8 left-8 bg-background/90 backdrop-blur-sm border border-border  p-4 shadow-xl max-w-[200px] transition-all duration-1000"
           style={{ opacity: mounted ? 1 : 0, transitionDelay: "600ms" }}>
           <div className="flex gap-0.5 mb-1">
             {[...Array(5)].map((_, i) => (

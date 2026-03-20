@@ -55,8 +55,8 @@ export function ServicesNumberedList() {
       id="services"
       className="scroll-mt-28 relative overflow-hidden py-20 lg:py-32"
     >
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/10  blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-primary/5  blur-3xl pointer-events-none" />
 
       <div className="container relative mx-auto px-4">
         <AnimateOnScroll animation="fade-up" triggerOnce={false}>
@@ -92,7 +92,7 @@ export function ServicesNumberedList() {
                       {num}
                     </span>
 
-                    <div className="w-11 h-11 lg:w-14 lg:h-14 rounded-xl bg-primary/10 group-hover:bg-primary/15 flex items-center justify-center transition-colors duration-300 shrink-0 mt-1">
+                    <div className="w-11 h-11 lg:w-14 lg:h-14  bg-primary/10 group-hover:bg-primary/15 flex items-center justify-center transition-colors duration-300 shrink-0 mt-1">
                       <Icon className="w-5 h-5 lg:w-7 lg:h-7 text-primary transition-transform duration-300 group-hover:scale-110" />
                     </div>
 

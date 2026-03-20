@@ -264,7 +264,7 @@ export function HeroCinematic() {
               {PARTICLES.map((p, i) => (
                 <div
                   key={i}
-                  className="hero-particle absolute rounded-full bg-white/30"
+                  className="hero-particle absolute  bg-white/30"
                   style={{
                     left: p.left,
                     top: p.top,
@@ -281,15 +281,17 @@ export function HeroCinematic() {
           <div className="relative z-10 flex flex-col justify-between lg:flex-row lg:items-center h-full p-6 sm:p-8 lg:p-10 container mx-auto gap-8 lg:gap-12">
             <div
               ref={mobileLogoRef}
-              className="relative flex-1 flex flex-col justify-between lg:justify-center gap-6 lg:gap-8 px-4 py-5 lg:px-0 lg:py-0 bg-white lg:bg-transparent rounded-2xl lg:rounded-none shadow-2xl lg:shadow-none overflow-hidden lg:overflow-visible"
+              className="relative flex-1 flex flex-col justify-between lg:justify-center gap-6 lg:gap-8 px-4 py-5 lg:px-0 lg:py-0 bg-gradient-to-br from-white to-gray-50/80 lg:bg-none lg:bg-transparent  lg:rounded-none shadow-2xl lg:shadow-none overflow-hidden lg:overflow-visible"
             >
               {/* Mobile accent bar — matches estimate form */}
               <div className="lg:hidden absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary/80 to-primary/60" />
-              <div className="flex items-center gap-4 sm:gap-5 lg:gap-6 max-w-4xl">
+              {/* Decorative background circle */}
+              <div className="lg:hidden absolute -top-8 -right-8 w-32 h-32 bg-primary/5  pointer-events-none" />
+              <div className="flex items-center justify-center lg:justify-start gap-4 sm:gap-5 lg:gap-6 max-w-4xl">
                 <div
                   className="shrink-0"
                   style={{
-                    opacity: mounted && headlineHeight > 0 ? 1 : 0,
+                    opacity: mounted ? 1 : 0,
                     transform: mounted
                       ? "translateX(0) scale(1)"
                       : isDesktop
@@ -298,10 +300,9 @@ export function HeroCinematic() {
                     transition: isDesktop
                       ? "all 1s cubic-bezier(0.22, 1, 0.36, 1)"
                       : "opacity 0.6s ease-out, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)",
-                    height:
-                      headlineHeight > 0
-                        ? headlineHeight * (isDesktop ? 0.85 : 1.466)
-                        : undefined,
+                    height: isDesktop
+                      ? headlineHeight > 0 ? headlineHeight * 0.85 : undefined
+                      : 120,
                   }}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -318,9 +319,10 @@ export function HeroCinematic() {
                   />
                 </div>
 
+                {/* Headline — desktop only */}
                 <h1
                   ref={headlineRef}
-                  className="text-xl sm:text-3xl lg:text-4xl xl:text-6xl font-black tracking-tight leading-tight text-gray-900 lg:text-white [perspective:600px]"
+                  className="hidden lg:block text-4xl xl:text-6xl font-black tracking-tight leading-tight text-white [perspective:600px]"
                 >
                   {headlineWords.map((word, i) => (
                     <span
@@ -332,9 +334,7 @@ export function HeroCinematic() {
                           ? "translateY(0) rotateX(0)"
                           : "translateY(40px) rotateX(-20deg)",
                         transitionDelay: `${i * 120}ms`,
-                        textShadow: isDesktop
-                          ? "0 2px 30px rgba(0,0,0,0.4)"
-                          : "none",
+                        textShadow: "0 2px 30px rgba(0,0,0,0.4)",
                       }}
                     >
                       {word}
@@ -344,7 +344,7 @@ export function HeroCinematic() {
               </div>
 
               <p
-                className="text-sm sm:text-base lg:text-lg font-black text-gray-600 lg:text-white max-w-xl leading-relaxed transition-all duration-1000 ease-out lg:[text-shadow:none]"
+                className="text-sm sm:text-base lg:text-lg font-medium text-gray-500 lg:text-white max-w-xl leading-relaxed transition-all duration-1000 ease-out lg:[text-shadow:none]"
                 style={{
                   opacity: textRevealed ? 1 : 0,
                   transform: textRevealed
@@ -356,22 +356,43 @@ export function HeroCinematic() {
                 {brand.hero.subheadline}
               </p>
 
-              {/* Mobile quick-nav pills */}
-              <div className="lg:hidden flex flex-row gap-3">
-                <a
-                  href="#why-us"
-                  className="inline-flex items-center justify-center gap-1.5 flex-1 rounded-full text-xs font-semibold h-9 px-3 bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm transition-all active:scale-95"
-                >
-                  Why Us?
-                  <ChevronDown className="w-3 h-3" />
-                </a>
-                <a
-                  href="#certifications"
-                  className="inline-flex items-center justify-center gap-1.5 flex-1 rounded-full text-xs font-semibold h-9 px-3 bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm transition-all active:scale-95"
-                >
-                  Certifications
-                  <ChevronDown className="w-3 h-3" />
-                </a>
+              {/* Mobile credential chips + nav pills */}
+              <div className="lg:hidden flex flex-col gap-3">
+                <div className="grid grid-cols-2 gap-2">
+                  {[
+                    "ShingleMaster Certified",
+                    "Energy Trust Partner",
+                    "HARP Recovery",
+                    "Family Owned",
+                  ].map((label) => (
+                    <span
+                      key={label}
+                      className="inline-flex items-center gap-1 px-2.5 py-1  bg-primary/8 border border-primary/20 text-xs font-semibold text-primary"
+                    >
+                      <Check className="w-3 h-3 shrink-0" />
+                      {label}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="h-px bg-gray-100" />
+
+                <div className="flex flex-row gap-3">
+                  <a
+                    href="#why-us"
+                    className="inline-flex items-center justify-center gap-1.5 flex-1  text-xs font-semibold h-9 px-3 bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm transition-all active:scale-95"
+                  >
+                    Why Us?
+                    <ChevronDown className="w-3 h-3" />
+                  </a>
+                  <a
+                    href="#certifications"
+                    className="inline-flex items-center justify-center gap-1.5 flex-1  text-xs font-semibold h-9 px-3 bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm transition-all active:scale-95"
+                  >
+                    Certifications
+                    <ChevronDown className="w-3 h-3" />
+                  </a>
+                </div>
               </div>
 
               {/* Desktop CTAs + Stats — inside left column */}
@@ -439,14 +460,14 @@ export function HeroCinematic() {
             >
               {brand.hero.overlayCard.type === "estimate-form" ? (
                 /* ── Free Estimate Form ─────────────────────────────── */
-                <div className="relative bg-white rounded-r-2xl lg:rounded-2xl shadow-2xl overflow-hidden">
+                <div className="relative bg-white   shadow-2xl overflow-hidden">
                   {/* Top accent bar */}
                   <div className="h-1 w-full bg-gradient-to-r from-primary via-primary/80 to-primary/60" />
 
                   <div className="p-8 sm:p-10">
                     {formStatus === "success" ? (
                       <div className="flex flex-col items-center gap-4 py-8 text-center">
-                        <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+                        <div className="w-16 h-16  bg-primary/10 border border-primary/20 flex items-center justify-center">
                           <Check className="w-8 h-8 text-primary" />
                         </div>
                         <div>
@@ -493,7 +514,7 @@ export function HeroCinematic() {
                               value={formFirstName}
                               onChange={(e) => setFormFirstName(e.target.value)}
                               autoComplete="given-name"
-                              className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
+                              className="w-full bg-gray-50 border border-gray-200  px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
                             />
                           </div>
                           <div className="flex flex-col gap-1.5">
@@ -507,7 +528,7 @@ export function HeroCinematic() {
                               value={formLastName}
                               onChange={(e) => setFormLastName(e.target.value)}
                               autoComplete="family-name"
-                              className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
+                              className="w-full bg-gray-50 border border-gray-200  px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
                             />
                           </div>
                         </div>
@@ -524,7 +545,7 @@ export function HeroCinematic() {
                             value={formEmail}
                             onChange={(e) => setFormEmail(e.target.value)}
                             autoComplete="email"
-                            className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
+                            className="w-full bg-gray-50 border border-gray-200  px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
                           />
                         </div>
 
@@ -540,7 +561,7 @@ export function HeroCinematic() {
                             value={formPhone}
                             onChange={(e) => setFormPhone(e.target.value)}
                             autoComplete="tel"
-                            className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
+                            className="w-full bg-gray-50 border border-gray-200  px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
                           />
                         </div>
 
@@ -553,7 +574,7 @@ export function HeroCinematic() {
                             required
                             value={formService}
                             onChange={(e) => setFormService(e.target.value)}
-                            className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all appearance-none cursor-pointer"
+                            className="w-full bg-gray-50 border border-gray-200  px-4 py-3 text-sm text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all appearance-none cursor-pointer"
                           >
                             <option value="" disabled>
                               Select a service...
@@ -568,7 +589,7 @@ export function HeroCinematic() {
                         <button
                           type="submit"
                           disabled={formStatus === "submitting"}
-                          className="mt-1 w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary text-primary-foreground text-base font-semibold hover:opacity-90 active:scale-[0.98] disabled:opacity-60 transition-all shadow-lg shadow-primary/20"
+                          className="mt-1 w-full flex items-center justify-center gap-2 py-3.5  bg-primary text-primary-foreground text-base font-semibold hover:opacity-90 active:scale-[0.98] disabled:opacity-60 transition-all shadow-lg shadow-primary/20"
                         >
                           {formStatus === "submitting" ? (
                             <Loader2 className="w-5 h-5 animate-spin" />
@@ -597,8 +618,8 @@ export function HeroCinematic() {
                 </div>
               ) : (
                 /* ── Default content card ───────────────────────────── */
-                <div className="relative bg-white/[0.07] backdrop-blur-xl border border-white/[0.1] rounded-xl p-5 2xl:p-7 space-y-4 overflow-hidden group/card hover:border-white/[0.18] transition-colors duration-500">
-                  <div className="absolute -top-12 -right-12 w-24 h-24 bg-white/10 rounded-full blur-2xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                <div className="relative bg-white/[0.07] backdrop-blur-xl border border-white/[0.1]  p-5 2xl:p-7 space-y-4 overflow-hidden group/card hover:border-white/[0.18] transition-colors duration-500">
+                  <div className="absolute -top-12 -right-12 w-24 h-24 bg-white/10  blur-2xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
                   <div className="flex items-center gap-2 relative">
                     <Sparkles className="w-3 h-3 text-white/50" />
@@ -616,7 +637,7 @@ export function HeroCinematic() {
                       <Link
                         key={btn.href}
                         href={btn.href}
-                        className="group/link inline-flex items-center gap-1.5 px-4 2xl:px-5 py-2 2xl:py-2.5 text-xs 2xl:text-sm font-medium text-white border border-white/20 rounded-lg hover:bg-white/10 hover:border-white/30 transition-all duration-300"
+                        className="group/link inline-flex items-center gap-1.5 px-4 2xl:px-5 py-2 2xl:py-2.5 text-xs 2xl:text-sm font-medium text-white border border-white/20  hover:bg-white/10 hover:border-white/30 transition-all duration-300"
                       >
                         {btn.label}
                         <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover/link:translate-x-0.5" />
@@ -635,7 +656,7 @@ export function HeroCinematic() {
         <div className="flex flex-row gap-3">
           <Button
             size="sm"
-            className="flex-1 rounded-full text-xs font-medium h-9 group/btn"
+            className="flex-1  text-xs font-medium h-9 group/btn"
             onClick={() => setQuoteModalOpen(true)}
           >
             <span className="flex items-center justify-center gap-1.5">
@@ -646,7 +667,7 @@ export function HeroCinematic() {
           <Button
             size="sm"
             variant="outline"
-            className="flex-1 rounded-full text-xs font-medium h-9"
+            className="flex-1  text-xs font-medium h-9"
             asChild
           >
             <Link href={brand.hero.secondaryCta.href}>
@@ -664,7 +685,7 @@ export function HeroCinematic() {
             </p>
           </div>
 
-          <div className="flex-1 min-w-0 flex flex-col justify-between rounded-lg border border-border bg-muted/50 p-3 gap-3">
+          <div className="flex-1 min-w-0 flex flex-col justify-between  border border-border bg-muted/50 p-3 gap-3">
             <a
               href={`tel:${brand.company.phone.replace(/\s/g, "")}`}
               className="flex items-center gap-2 text-xs text-foreground hover:text-primary transition-colors"
@@ -703,7 +724,7 @@ export function HeroCinematic() {
           {brand.hero.scrollHint}
         </span>
         <div className="w-[1px] h-8 bg-gradient-to-b from-muted-foreground/40 to-transparent" />
-        <div className="w-8 h-8 rounded-full border border-muted-foreground/30 flex items-center justify-center animate-bounce">
+        <div className="w-8 h-8  border border-muted-foreground/30 flex items-center justify-center animate-bounce">
           <ChevronDown className="w-3.5 h-3.5 text-muted-foreground/60" />
         </div>
       </div>

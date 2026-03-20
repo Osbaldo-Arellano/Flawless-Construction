@@ -79,10 +79,10 @@ function VideoPageInner() {
         <div className="relative w-full">
           {total > 1 && (
             <>
-              <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 z-10 rounded-full bg-black/50 hover:bg-black/70 border border-white/10 p-2 text-white transition-colors hidden sm:flex" aria-label="Previous">
+              <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 z-10  bg-black/50 hover:bg-black/70 border border-white/10 p-2 text-white transition-colors hidden sm:flex" aria-label="Previous">
                 <ChevronLeft className="w-5 h-5" />
               </button>
-              <button onClick={next} className="absolute right-3 top-1/2 -translate-y-1/2 z-10 rounded-full bg-black/50 hover:bg-black/70 border border-white/10 p-2 text-white transition-colors hidden sm:flex" aria-label="Next">
+              <button onClick={next} className="absolute right-3 top-1/2 -translate-y-1/2 z-10  bg-black/50 hover:bg-black/70 border border-white/10 p-2 text-white transition-colors hidden sm:flex" aria-label="Next">
                 <ChevronRight className="w-5 h-5" />
               </button>
             </>
@@ -99,7 +99,7 @@ function VideoPageInner() {
               controls
               autoPlay
               playsInline
-              className={cn("w-full max-h-[65vh] sm:max-h-[80vh] rounded-lg transition-opacity duration-300", videoLoaded ? "opacity-100" : "opacity-0")}
+              className={cn("w-full max-h-[65vh] sm:max-h-[80vh]  transition-opacity duration-300", videoLoaded ? "opacity-100" : "opacity-0")}
               onLoadedData={() => setVideoLoaded(true)}
             />
           </div>
@@ -117,7 +117,7 @@ function VideoPageInner() {
                   key={i}
                   ref={(el) => { thumbRefs.current[i] = el; }}
                   onClick={() => goTo(i)}
-                  className={cn("relative shrink-0 w-20 h-14 sm:w-24 sm:h-16 rounded-md overflow-hidden transition-all duration-200 bg-white/5", i === index ? "ring-2 ring-white ring-offset-2 ring-offset-black opacity-100" : "opacity-40 hover:opacity-70")}
+                  className={cn("relative shrink-0 w-20 h-14 sm:w-24 sm:h-16  overflow-hidden transition-all duration-200 bg-white/5", i === index ? "ring-2 ring-white ring-offset-2 ring-offset-black opacity-100" : "opacity-40 hover:opacity-70")}
                   aria-label={`View ${thumbVideo.title}`}
                 >
                   <video src={thumbVideo.videoUrl} muted playsInline preload="metadata" className="w-full h-full object-cover" />

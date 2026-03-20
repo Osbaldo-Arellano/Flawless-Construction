@@ -51,7 +51,7 @@ export function HeroBento() {
         <div className="grid grid-cols-2 lg:grid-cols-4 grid-rows-[auto_auto_auto] gap-3 max-w-6xl mx-auto">
           {/* Hero image — spans 2 cols, 2 rows */}
           <div
-            className="col-span-2 row-span-2 relative rounded-3xl overflow-hidden min-h-[320px] lg:min-h-[480px]"
+            className="col-span-2 row-span-2 relative  overflow-hidden min-h-[320px] lg:min-h-[480px]"
             style={delay(100)}
           >
             <Image
@@ -81,10 +81,10 @@ export function HeroBento() {
           {brand.hero.stats.map((stat, i) => (
             <div
               key={stat.label}
-              className="relative rounded-3xl bg-muted/50 border border-border p-6 flex flex-col justify-between overflow-hidden group hover:border-primary/30 transition-colors duration-300"
+              className="relative  bg-muted/50 border border-border p-6 flex flex-col justify-between overflow-hidden group hover:border-primary/30 transition-colors duration-300"
               style={delay(150 + i * 80)}
             >
-              <div className="absolute -top-6 -right-6 w-20 h-20 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/10 transition-colors duration-500" />
+              <div className="absolute -top-6 -right-6 w-20 h-20 bg-primary/5  blur-xl group-hover:bg-primary/10 transition-colors duration-500" />
               <div className="text-3xl lg:text-4xl font-black text-foreground">
                 {stat.value}
               </div>
@@ -96,7 +96,7 @@ export function HeroBento() {
 
           {/* Secondary CTA cell */}
           <div
-            className="rounded-3xl bg-primary text-primary-foreground p-6 flex flex-col justify-between overflow-hidden relative group"
+            className=" bg-primary text-primary-foreground p-6 flex flex-col justify-between overflow-hidden relative group"
             style={delay(400)}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -121,7 +121,7 @@ export function HeroBento() {
 
           {/* Contact card */}
           <div
-            className="col-span-2 lg:col-span-1 rounded-3xl bg-muted/30 border border-border p-6 space-y-4"
+            className="col-span-2 lg:col-span-1  bg-muted/30 border border-border p-6 space-y-4"
             style={delay(480)}
           >
             <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
@@ -144,7 +144,7 @@ export function HeroBento() {
 
           {/* Overlay card text */}
           <div
-            className="col-span-2 lg:col-span-3 rounded-3xl border border-border bg-background p-6 flex items-center gap-6"
+            className="col-span-2 lg:col-span-3  border border-border bg-background p-6 flex items-center gap-6"
             style={delay(560)}
           >
             <div className="flex-1 min-w-0">

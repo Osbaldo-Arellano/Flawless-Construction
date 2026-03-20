@@ -13,7 +13,7 @@ export function AboutFounderSpotlight() {
       id="about"
       className="scroll-mt-28 relative overflow-hidden py-20 lg:py-32"
     >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5  blur-3xl pointer-events-none" />
 
       <div className="container relative mx-auto px-4">
         {/* Section label */}
@@ -35,7 +35,7 @@ export function AboutFounderSpotlight() {
           {/* Left — founder image + badge */}
           <AnimateOnScroll animation="fade-up" triggerOnce={false}>
             <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-xl mx-auto lg:mx-0">
+              <div className="relative  overflow-hidden aspect-[4/5] max-w-xl mx-auto lg:mx-0">
                 <Image
                   src={brand.assets.founderImage ?? brand.assets.aboutImage ?? brand.assets.hero.image}
                   alt={brand.company.name}
@@ -46,7 +46,7 @@ export function AboutFounderSpotlight() {
               </div>
 
               {/* Floating name badge */}
-              <div className="absolute -bottom-6 -right-4 lg:right-0 bg-background border border-border rounded-2xl p-4 shadow-xl max-w-[220px]">
+              <div className="absolute -bottom-6 -right-4 lg:right-0 bg-background border border-border  p-4 shadow-xl max-w-[220px]">
                 <p className="font-bold text-sm">{brand.company.name}</p>
                 <p className="text-xs text-muted-foreground mt-0.5">{brand.company.address}</p>
                 <p className="mt-2 text-[10px] text-muted-foreground leading-relaxed">
@@ -55,7 +55,7 @@ export function AboutFounderSpotlight() {
               </div>
 
               {/* Decorative ring */}
-              <div className="absolute -top-6 -left-6 w-24 h-24 rounded-full border-2 border-primary/20 pointer-events-none" />
+              <div className="absolute -top-6 -left-6 w-24 h-24  border-2 border-primary/20 pointer-events-none" />
             </div>
           </AnimateOnScroll>
 
@@ -79,7 +79,7 @@ export function AboutFounderSpotlight() {
                   triggerOnce={false}
                 >
                   <div className="flex items-start gap-4 group">
-                    <div className="shrink-0 w-10 h-10 rounded-full bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center transition-colors duration-300">
+                    <div className="shrink-0 w-10 h-10  bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center transition-colors duration-300">
                       <span className="text-xs font-black text-primary">
                         {String(i + 1).padStart(2, "0")}
                       </span>

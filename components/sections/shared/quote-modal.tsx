@@ -91,7 +91,7 @@ export function QuoteModal({ open, onOpenChange }: QuoteModalProps) {
       <DialogContent className="sm:max-w-lg">
         {submitted ? (
           <div className="text-center py-12">
-            <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16  bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-4">
               <Send className="w-8 h-8 text-green-600 dark:text-green-400" />
             </div>
             <h3 className="text-xl font-semibold mb-2">
@@ -167,7 +167,7 @@ export function QuoteModal({ open, onOpenChange }: QuoteModalProps) {
                   {brand.services.items.map((service) => (
                     <label
                       key={service.title}
-                      className="flex items-center gap-2 p-2 rounded-md border border-border hover:bg-muted/40 cursor-pointer transition-colors text-sm"
+                      className="flex items-center gap-2 p-2  border border-border hover:bg-muted/40 cursor-pointer transition-colors text-sm"
                     >
                       <input
                         type="checkbox"
@@ -190,7 +190,7 @@ export function QuoteModal({ open, onOpenChange }: QuoteModalProps) {
                   name="message"
                   rows={3}
                   placeholder={brand.quoteModal.messagePlaceholder}
-                  className="flex w-full rounded-md border border-border bg-muted/40 dark:bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus:bg-background dark:focus:bg-background disabled:cursor-not-allowed disabled:opacity-50 resize-none transition-colors"
+                  className="flex w-full  border border-border bg-muted/40 dark:bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus:bg-background dark:focus:bg-background disabled:cursor-not-allowed disabled:opacity-50 resize-none transition-colors"
                 />
               </div>
 

@@ -21,8 +21,8 @@ export function EmergencyDefault() {
         }}
       />
       {/* Glow blobs */}
-      <div className="absolute -top-20 -right-20 w-80 h-80 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-20 -right-20 w-80 h-80 bg-white/10  blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-white/5  blur-3xl pointer-events-none" />
 
       <div className="container relative mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16">
@@ -65,9 +65,9 @@ export function EmergencyDefault() {
           <div className="shrink-0 flex flex-col items-center gap-3">
             <a
               href={`tel:${brand.company.phone.replace(/\D/g, "")}`}
-              className="group flex items-center gap-4 bg-white/15 hover:bg-white/25 border border-white/25 hover:border-white/40 rounded-2xl px-8 py-5 transition-all duration-300 shadow-xl"
+              className="group flex items-center gap-4 bg-white/15 hover:bg-white/25 border border-white/25 hover:border-white/40  px-8 py-5 transition-all duration-300 shadow-xl"
             >
-              <div className="w-12 h-12 rounded-full bg-white/20 group-hover:bg-white/30 flex items-center justify-center shrink-0 transition-colors duration-300">
+              <div className="w-12 h-12  bg-white/20 group-hover:bg-white/30 flex items-center justify-center shrink-0 transition-colors duration-300">
                 <Phone className="w-5 h-5" />
               </div>
               <div>

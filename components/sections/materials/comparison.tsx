@@ -58,7 +58,7 @@ export function MaterialsComparison() {
       id="materials"
       className="scroll-mt-28 relative overflow-hidden py-20 lg:py-32 bg-background"
     >
-      <div className="absolute -top-32 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-32 right-0 w-[500px] h-[500px] bg-primary/5  blur-3xl pointer-events-none" />
 
       <div className="container relative mx-auto px-4">
 
@@ -92,14 +92,14 @@ export function MaterialsComparison() {
                     key={item.title}
                     onClick={() => setActive(i)}
                     className={`
-                      flex items-center gap-2 lg:gap-3 px-3 lg:px-4 py-3 lg:py-3.5 rounded-xl text-left transition-all duration-200
+                      flex items-center gap-2 lg:gap-3 px-3 lg:px-4 py-3 lg:py-3.5  text-left transition-all duration-200
                       ${isActive
                         ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
                         : "bg-muted/50 hover:bg-muted text-foreground border border-border hover:border-primary/20"
                       }
                     `}
                   >
-                    <div className={`w-7 h-7 lg:w-8 lg:h-8 rounded-lg flex items-center justify-center shrink-0 ${isActive ? "bg-white/20" : "bg-primary/10"}`}>
+                    <div className={`w-7 h-7 lg:w-8 lg:h-8  flex items-center justify-center shrink-0 ${isActive ? "bg-white/20" : "bg-primary/10"}`}>
                       <TabIcon className={`w-3.5 h-3.5 lg:w-4 lg:h-4 ${isActive ? "text-primary-foreground" : "text-primary"}`} />
                     </div>
                     <span className="text-xs lg:text-sm font-semibold leading-tight">
@@ -117,11 +117,11 @@ export function MaterialsComparison() {
           {/* Right — detail panel — fixed height, contents adapt */}
           <AnimateOnScroll animation="fade-up" delay={100} triggerOnce={false}>
             <div
-              className="relative rounded-2xl border border-border bg-muted/30 overflow-hidden
+              className="relative  border border-border bg-muted/30 overflow-hidden
                          min-h-[360px] sm:min-h-[380px] lg:h-[420px]
                          flex flex-col p-5 sm:p-7 lg:p-10"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5  blur-3xl pointer-events-none" />
 
               {/* Icon + title — fixed, never shrinks */}
               <div
@@ -129,7 +129,7 @@ export function MaterialsComparison() {
                 className="flex items-start gap-4 shrink-0 mb-4"
                 style={{ animation: "fadeSlideIn 0.25s ease-out" }}
               >
-                <div className="w-11 h-11 lg:w-14 lg:h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                <div className="w-11 h-11 lg:w-14 lg:h-14  bg-primary/10 flex items-center justify-center shrink-0">
                   <Icon className="w-5 h-5 lg:w-7 lg:h-7 text-primary" />
                 </div>
                 <h3 className="text-xl lg:text-3xl font-black tracking-tight leading-tight pt-1">

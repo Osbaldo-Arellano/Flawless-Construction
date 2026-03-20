@@ -93,7 +93,7 @@ export function ServicesGridTilt() {
       id="services"
       className="scroll-mt-28 relative overflow-hidden py-20 lg:py-32"
     >
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/8  blur-3xl pointer-events-none" />
 
       <div className="container relative mx-auto px-4">
         <AnimateOnScroll animation="fade-up" triggerOnce={false}>
@@ -119,9 +119,9 @@ export function ServicesGridTilt() {
                 triggerOnce={false}
               >
                 <TiltCard>
-                  <div className="relative h-full rounded-2xl border border-border bg-card p-6 lg:p-8 overflow-hidden group cursor-default">
+                  <div className="relative h-full  border border-border bg-card p-6 lg:p-8 overflow-hidden group cursor-default">
                     {/* Background glow on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-primary/10 transition-all duration-500 pointer-events-none rounded-2xl" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-primary/10 transition-all duration-500 pointer-events-none " />
 
                     {/* Shimmer line */}
                     <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -132,7 +132,7 @@ export function ServicesGridTilt() {
                     </span>
 
                     <div className="relative z-10 space-y-4">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                      <div className="w-12 h-12  bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                         <Icon className="w-6 h-6 text-primary" />
                       </div>
 

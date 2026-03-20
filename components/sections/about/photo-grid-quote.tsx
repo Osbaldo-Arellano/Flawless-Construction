@@ -12,8 +12,8 @@ export function AboutPhotoGridQuote() {
       id="about"
       className="scroll-mt-28 relative overflow-hidden py-20 lg:py-32"
     >
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/10  blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/5  blur-3xl pointer-events-none" />
 
       <div className="container relative mx-auto px-4">
         <AnimateOnScroll animation="fade-up" triggerOnce={false}>
@@ -30,7 +30,7 @@ export function AboutPhotoGridQuote() {
         {/* Photo grid */}
         <AnimateOnScroll animation="fade-up" triggerOnce={false}>
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16 md:h-[400px] lg:h-[450px] -mx-4 md:mx-0">
-            <div className="hidden lg:block rounded-xl overflow-hidden border border-black/[0.06] dark:border-white/10">
+            <div className="hidden lg:block  overflow-hidden border border-black/[0.06] dark:border-white/10">
               <Image
                 src="/jobs/electrician-commercial-wire-pull.jpg"
                 alt="Team at work"
@@ -39,7 +39,7 @@ export function AboutPhotoGridQuote() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="hidden lg:block rounded-xl overflow-hidden border border-black/[0.06] dark:border-white/10">
+            <div className="hidden lg:block  overflow-hidden border border-black/[0.06] dark:border-white/10">
               <Image
                 src="/jobs/fully-stocked-work-van.jpg"
                 alt="Work van"
@@ -48,7 +48,7 @@ export function AboutPhotoGridQuote() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="hidden md:block rounded-xl overflow-hidden border border-black/[0.06] dark:border-white/10">
+            <div className="hidden md:block  overflow-hidden border border-black/[0.06] dark:border-white/10">
               <Image
                 src="/jobs/electrician-on-site.png"
                 alt="On site"
@@ -57,7 +57,7 @@ export function AboutPhotoGridQuote() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="md:col-span-2 rounded-none md:rounded-xl overflow-hidden border-y md:border border-black/[0.06] dark:border-white/10 aspect-[3/2] md:aspect-auto">
+            <div className="md:col-span-2 rounded-none  overflow-hidden border-y md:border border-black/[0.06] dark:border-white/10 aspect-[3/2] md:aspect-auto">
               <Image
                 src="/jobs/service-mast-rooftop-install.png"
                 alt="Rooftop install"
@@ -72,7 +72,7 @@ export function AboutPhotoGridQuote() {
         {/* Description + shop photo */}
         <AnimateOnScroll animation="fade-up" triggerOnce={false}>
           <div className="grid lg:grid-cols-2 gap-8 mb-16 mt-2.5 lg:mt-0 -mx-4 md:mx-0">
-            <div className="relative p-8 lg:p-10 mx-4 md:mx-0 bg-white/5 backdrop-blur-md rounded-2xl">
+            <div className="relative p-8 lg:p-10 mx-4 md:mx-0 bg-white/5 backdrop-blur-md ">
               <span className="absolute top-4 left-6 text-6xl lg:text-9xl font-serif text-primary/20 leading-none select-none">
                 &ldquo;
               </span>
@@ -83,7 +83,7 @@ export function AboutPhotoGridQuote() {
                 &rdquo;
               </span>
             </div>
-            <div className="relative rounded-none md:rounded-2xl overflow-hidden border-y md:border border-black/[0.06] dark:border-white/10 min-h-[300px] lg:min-h-0">
+            <div className="relative rounded-none  overflow-hidden border-y md:border border-black/[0.06] dark:border-white/10 min-h-[300px] lg:min-h-0">
               <Image
                 src="/suburb.jpg"
                 alt={brand.company.name}

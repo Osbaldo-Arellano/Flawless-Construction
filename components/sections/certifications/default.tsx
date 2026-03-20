@@ -83,7 +83,7 @@ export function CertificationsDefault() {
         <div className="hidden sm:grid sm:grid-cols-2 gap-6 lg:gap-8">
           {items.map((item, i) => (
             <AnimateOnScroll key={item.name} animation="fade-up" delay={i * 80}>
-              <div className="flex flex-col gap-5 p-6 lg:p-8 rounded-2xl border border-border bg-card h-full">
+              <div className="flex flex-col gap-5 p-6 lg:p-8  border border-border bg-card h-full">
                 {item.logo && (
                   <div className="h-14 flex items-center">
                     <Image

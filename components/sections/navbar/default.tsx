@@ -116,12 +116,12 @@ export function NavbarDefault() {
                 height={40}
                 className="h-10 w-10 object-contain transition-all duration-500 group-hover/logo:scale-105 shrink-0"
               />
-              {/* Company name + tagline — desktop only */}
-              <div className="hidden lg:flex flex-col leading-tight">
-                <span className="text-sm font-bold tracking-tight">{brand.company.name}</span>
-                <span className="text-xs text-muted-foreground">{brand.hero.headline}</span>
+              {/* Company name + tagline */}
+              <div className="flex flex-col leading-tight">
+                <span className="text-xs lg:text-sm font-bold tracking-tight">{brand.company.name}</span>
+                <span className="text-[10px] lg:text-xs text-muted-foreground">{brand.hero.headline}</span>
               </div>
-              <div className="absolute inset-0 bg-primary/0 group-hover/logo:bg-primary/10 rounded-full blur-2xl transition-all duration-500 pointer-events-none" />
+              <div className="absolute inset-0 bg-primary/0 group-hover/logo:bg-primary/10  blur-2xl transition-all duration-500 pointer-events-none" />
             </div>
           ) : (
             <span className="text-xl font-bold">{brand.company.name}</span>
@@ -137,14 +137,14 @@ export function NavbarDefault() {
             transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1) 200ms",
           }}
         >
-          <div className="flex items-center gap-0.5 rounded-full bg-muted/40 backdrop-blur-md border border-border/30 px-1.5 py-1.5">
+          <div className="flex items-center gap-0.5  bg-muted/40 backdrop-blur-md border border-border/30 px-1.5 py-1.5">
             {brand.navigation.links.map((link, i) => {
               const isActive = activeSection === link.href.replace("#", "");
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`group/link relative px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 ${
+                  className={`group/link relative px-4 py-1.5 text-sm font-medium  transition-all duration-300 ${
                     isActive
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"
@@ -155,7 +155,7 @@ export function NavbarDefault() {
                   }}
                 >
                   <span
-                    className={`absolute inset-0 rounded-full transition-all duration-300 ${
+                    className={`absolute inset-0  transition-all duration-300 ${
                       isActive
                         ? "bg-background shadow-sm"
                         : "bg-transparent group-hover/link:bg-background/60"
@@ -163,7 +163,7 @@ export function NavbarDefault() {
                   />
                   <span className="relative flex items-center gap-1.5">
                     <span
-                      className={`w-1 h-1 rounded-full bg-primary transition-all duration-300 ${
+                      className={`w-1 h-1  bg-primary transition-all duration-300 ${
                         isActive ? "opacity-100 scale-100" : "opacity-0 scale-0"
                       }`}
                     />
@@ -258,13 +258,13 @@ export function NavbarDefault() {
           mobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-background/90 backdrop-blur-xl border-b border-border/40 shadow-xl rounded-b-2xl">
+        <div className="bg-background/90 backdrop-blur-xl border-b border-border/40 shadow-xl ">
           <div className="container mx-auto px-4 pt-2 pb-5 space-y-1">
             {brand.navigation.links.map((link, i) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="group/mlink flex items-center gap-3 text-sm font-medium text-muted-foreground hover:text-foreground rounded-xl px-3 py-3 hover:bg-muted/60 transition-all duration-300"
+                className="group/mlink flex items-center gap-3 text-sm font-medium text-muted-foreground hover:text-foreground  px-3 py-3 hover:bg-muted/60 transition-all duration-300"
                 onClick={() => setMobileMenuOpen(false)}
                 style={{
                   opacity: mobileMenuOpen ? 1 : 0,
@@ -273,7 +273,7 @@ export function NavbarDefault() {
                   transitionDelay: mobileMenuOpen ? `${i * 60}ms` : "0ms",
                 }}
               >
-                <span className="w-1 h-1 rounded-full bg-muted-foreground/30 group-hover/mlink:bg-primary group-hover/mlink:scale-150 transition-all duration-300" />
+                <span className="w-1 h-1  bg-muted-foreground/30 group-hover/mlink:bg-primary group-hover/mlink:scale-150 transition-all duration-300" />
                 {link.label}
               </Link>
             ))}

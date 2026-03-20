@@ -77,7 +77,7 @@ export function RoofAgeCalculator() {
       {/* Panel */}
       {open && (
         <div
-          className="fixed right-12 z-[60] w-[calc(100vw-4rem)] max-w-[340px] flex flex-col rounded-2xl border border-border bg-background shadow-2xl overflow-hidden"
+          className="fixed right-12 z-[60] w-[calc(100vw-4rem)] max-w-[340px] flex flex-col  border border-border bg-background shadow-2xl overflow-hidden"
           style={{
             top: "50%",
             animation: "calcSlideIn 0.25s cubic-bezier(0.22,1,0.36,1) forwards",
@@ -93,7 +93,7 @@ export function RoofAgeCalculator() {
             </div>
             <button
               onClick={handleClose}
-              className="p-1.5 rounded-lg hover:bg-white/10 transition-colors"
+              className="p-1.5  hover:bg-white/10 transition-colors"
               aria-label="Close"
             >
               <X className="w-4 h-4" />
@@ -143,7 +143,7 @@ export function RoofAgeCalculator() {
 
               <button
                 onClick={() => setFlow("result")}
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 active:scale-95 transition-all"
+                className="flex items-center justify-center gap-2 w-full py-3  bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 active:scale-95 transition-all"
               >
                 Check My Roof
                 <ChevronRight className="w-4 h-4" />
@@ -174,9 +174,9 @@ export function RoofAgeCalculator() {
                     {health.label}
                   </span>
                 </div>
-                <div className="h-2 rounded-full bg-muted overflow-hidden">
+                <div className="h-2  bg-muted overflow-hidden">
                   <div
-                    className={`h-full rounded-full transition-all duration-700 ${health.barColor}`}
+                    className={`h-full  transition-all duration-700 ${health.barColor}`}
                     style={{ width: `${barWidth}%` }}
                   />
                 </div>
@@ -193,7 +193,7 @@ export function RoofAgeCalculator() {
                   handleClose();
                   setQuoteOpen(true);
                 }}
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 active:scale-95 transition-all"
+                className="flex items-center justify-center gap-2 w-full py-3  bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 active:scale-95 transition-all"
               >
                 Get a Free Inspection
                 <ChevronRight className="w-4 h-4" />
@@ -227,7 +227,7 @@ export function RoofAgeCalculator() {
       >
         <button
           onClick={() => setOpen((o) => !o)}
-          className="relative w-7 h-12 sm:w-12 sm:h-20 rounded-l-xl sm:rounded-l-2xl bg-primary text-primary-foreground shadow-xl hover:shadow-primary/40 active:scale-95 transition-all duration-200 flex items-center justify-center"
+          className="relative w-7 h-12 sm:w-12 sm:h-20   bg-primary text-primary-foreground shadow-xl hover:shadow-primary/40 active:scale-95 transition-all duration-200 flex items-center justify-center"
           aria-label={open ? "Close calculator" : "Roof age calculator"}
         >
           {open ? (

@@ -84,7 +84,7 @@ export function ContactStacked() {
                   { icon: MapPin, label: "Address", value: brand.company.address, href: null },
                 ].map(({ icon: Icon, label, value, href }) => (
                   <div key={label} className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 shadow-sm">
+                    <div className="w-10 h-10  bg-primary/10 flex items-center justify-center shrink-0 shadow-sm">
                       <Icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
@@ -109,7 +109,7 @@ export function ContactStacked() {
               <CardContent className="p-6">
                 {submitted ? (
                   <div className="text-center py-12">
-                    <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16  bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-4">
                       <Send className="w-8 h-8 text-green-600 dark:text-green-400" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
@@ -160,7 +160,7 @@ export function ContactStacked() {
                       <Label className="font-medium">{brand.cta.servicesLabel}</Label>
                       <div className="grid sm:grid-cols-2 gap-2">
                         {brand.services.items.map((service) => (
-                          <label key={service.title} className="flex items-center gap-2 p-2 rounded-md border border-border hover:bg-muted/40 cursor-pointer transition-colors text-sm">
+                          <label key={service.title} className="flex items-center gap-2 p-2  border border-border hover:bg-muted/40 cursor-pointer transition-colors text-sm">
                             <input type="checkbox" checked={selectedServices.includes(service.title)} onChange={() => toggleService(service.title)} className="rounded border-border text-primary focus:ring-primary" />
                             <span>{service.title}</span>
                           </label>
@@ -176,7 +176,7 @@ export function ContactStacked() {
                         rows={4}
                         placeholder="Tell us about your project..."
                         required
-                        className="flex w-full rounded-md border border-border bg-muted/40 dark:bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus:bg-background dark:focus:bg-background disabled:cursor-not-allowed disabled:opacity-50 resize-none transition-colors"
+                        className="flex w-full  border border-border bg-muted/40 dark:bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus:bg-background dark:focus:bg-background disabled:cursor-not-allowed disabled:opacity-50 resize-none transition-colors"
                       />
                     </div>
 

@@ -85,9 +85,9 @@ export function TrustBarDefault() {
         }}
       >
         <div className="container mx-auto px-4">
-          <div className="relative max-w-4xl mx-auto rounded-2xl px-8 py-10">
-            <div className="absolute -right-12 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="relative max-w-4xl mx-auto  px-8 py-10">
+            <div className="absolute -right-12 w-48 h-48 bg-primary/10  blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-primary/5  blur-3xl pointer-events-none" />
 
             <p className="relative text-center text-lg font-semibold uppercase tracking-widest text-muted-foreground/70 mb-8">
               {brand.trustBar.headline}
