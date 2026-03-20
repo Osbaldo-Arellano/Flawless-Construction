@@ -158,7 +158,7 @@ export function QuoteModal({ open, onOpenChange }: QuoteModalProps) {
                 <Label htmlFor="quotePhone" className="font-medium">
                   {brand.quoteModal.phoneLabel}
                 </Label>
-                <Input id="quotePhone" name="phone" type="tel" className={inputClassName} />
+                <Input id="quotePhone" name="phone" type="tel" required className={inputClassName} />
               </div>
 
               <div className="space-y-2">

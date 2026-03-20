@@ -1,7 +1,8 @@
 "use client";
 
-import { ShieldCheck, BadgeDollarSign, FileCheck2, Home, Star } from "lucide-react";
+import { ShieldCheck, BadgeDollarSign, FileCheck2, Home, Star, ChevronDown } from "lucide-react";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
+import { useState } from "react";
 
 const BENEFITS = [
   {
@@ -32,6 +33,8 @@ const BENEFITS = [
 ];
 
 export function WhyUsCards() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
     <section className="py-20 lg:py-32 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
@@ -53,15 +56,48 @@ export function WhyUsCards() {
           </div>
         </AnimateOnScroll>
 
-        {/* Row 1 — 3 cards */}
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 mb-6">
+        {/* Mobile: accordion list */}
+        <div className="md:hidden border border-border divide-y divide-border">
+          {BENEFITS.map((benefit, i) => {
+            const Icon = benefit.icon;
+            const isOpen = openIndex === i;
+            return (
+              <div key={benefit.title}>
+                <button
+                  className="w-full flex items-center gap-4 px-5 py-4 text-left bg-muted/20 active:bg-muted/40 transition-colors"
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  aria-expanded={isOpen}
+                >
+                  <div className="w-9 h-9 bg-primary/10 flex items-center justify-center shrink-0">
+                    <Icon className="w-4 h-4 text-primary" aria-hidden="true" />
+                  </div>
+                  <span className="flex-1 text-sm font-bold text-foreground leading-snug">{benefit.title}</span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-primary shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                    aria-hidden="true"
+                  />
+                </button>
+                <div className={`grid transition-all duration-300 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+                  <div className="overflow-hidden">
+                    <p className="px-5 pb-5 pt-3 pl-[3.25rem] text-sm text-muted-foreground leading-relaxed">
+                      {benefit.body}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Desktop: card grid */}
+        <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-3 gap-6 mb-6">
           {BENEFITS.slice(0, 3).map((benefit, i) => {
             const Icon = benefit.icon;
             return (
               <AnimateOnScroll key={benefit.title} animation="fade-up" delay={i * 80} triggerOnce={false}>
                 <div className="group flex flex-col gap-5 p-7 lg:p-8 border border-border bg-muted/20 hover:bg-muted/40 hover:border-primary/30 transition-colors duration-300 h-full">
                   <div className="w-11 h-11 bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center transition-colors duration-300 shrink-0">
-                    <Icon className="w-5 h-5 text-primary" />
+                    <Icon className="w-5 h-5 text-primary" aria-hidden="true" />
                   </div>
                   <div className="flex flex-col gap-2 flex-1">
                     <h3 className="text-base font-bold text-foreground leading-snug">{benefit.title}</h3>
@@ -73,15 +109,14 @@ export function WhyUsCards() {
           })}
         </div>
 
-        {/* Row 2 — last 2 cards centered */}
-        <div className="flex flex-col md:flex-row justify-center gap-6">
+        <div className="hidden md:flex md:flex-row justify-center gap-6">
           {BENEFITS.slice(3).map((benefit, i) => {
             const Icon = benefit.icon;
             return (
               <AnimateOnScroll key={benefit.title} animation="fade-up" delay={(i + 3) * 80} triggerOnce={false} className="md:w-1/2 xl:w-1/3">
                 <div className="group flex flex-col gap-5 p-7 lg:p-8 border border-border bg-muted/20 hover:bg-muted/40 hover:border-primary/30 transition-colors duration-300 h-full">
                   <div className="w-11 h-11 bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center transition-colors duration-300 shrink-0">
-                    <Icon className="w-5 h-5 text-primary" />
+                    <Icon className="w-5 h-5 text-primary" aria-hidden="true" />
                   </div>
                   <div className="flex flex-col gap-2 flex-1">
                     <h3 className="text-base font-bold text-foreground leading-snug">{benefit.title}</h3>

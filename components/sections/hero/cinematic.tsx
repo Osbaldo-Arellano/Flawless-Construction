@@ -279,8 +279,10 @@ export function HeroCinematic() {
           <div className="relative z-10 flex flex-col justify-between lg:flex-row lg:items-center h-full p-6 sm:p-8 lg:p-10 container mx-auto gap-8 lg:gap-12">
             <div
               ref={mobileLogoRef}
-              className="flex-1 flex flex-col justify-between lg:justify-center gap-6 lg:gap-8 px-4 py-5 mx-0 lg:mx-0 lg:px-0 lg:py-0 bg-primary/15 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none"
+              className="relative flex-1 flex flex-col justify-between lg:justify-center gap-6 lg:gap-8 px-4 py-5 lg:px-0 lg:py-0 bg-white lg:bg-transparent rounded-2xl lg:rounded-none shadow-2xl lg:shadow-none overflow-hidden lg:overflow-visible"
             >
+              {/* Mobile accent bar — matches estimate form */}
+              <div className="lg:hidden absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary/80 to-primary/60" />
               <div className="flex items-center gap-4 sm:gap-5 lg:gap-6 max-w-4xl">
                 <div
                   className="shrink-0"
@@ -315,7 +317,7 @@ export function HeroCinematic() {
 
                 <h1
                   ref={headlineRef}
-                  className="text-xl sm:text-3xl lg:text-4xl xl:text-6xl font-black tracking-tight leading-tight text-white [perspective:600px]"
+                  className="text-xl sm:text-3xl lg:text-4xl xl:text-6xl font-black tracking-tight leading-tight text-gray-900 lg:text-white [perspective:600px]"
                 >
                   {headlineWords.map((word, i) => (
                     <span
@@ -329,7 +331,7 @@ export function HeroCinematic() {
                         transitionDelay: `${i * 120}ms`,
                         textShadow: isDesktop
                           ? "0 2px 30px rgba(0,0,0,0.4)"
-                          : "0 2px 12px rgba(0,0,0,0.95), 0 4px 40px rgba(0,0,0,0.8)",
+                          : "none",
                       }}
                     >
                       {word}
@@ -339,7 +341,7 @@ export function HeroCinematic() {
               </div>
 
               <p
-                className="text-sm sm:text-base lg:text-lg font-black text-white/90 lg:text-white max-w-xl leading-relaxed transition-all duration-1000 ease-out [text-shadow:0_1px_8px_rgba(0,0,0,0.8)] lg:[text-shadow:none]"
+                className="text-sm sm:text-base lg:text-lg font-black text-gray-600 lg:text-white max-w-xl leading-relaxed transition-all duration-1000 ease-out lg:[text-shadow:none]"
                 style={{
                   opacity: textRevealed ? 1 : 0,
                   transform: textRevealed ? "translateY(0)" : "translateY(20px)",

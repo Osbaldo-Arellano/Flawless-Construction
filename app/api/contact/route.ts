@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
   }
 
   // Required fields
-  if (!firstName || !email) {
+  if (!firstName || !email || !phone) {
     return new Response("Missing required fields", { status: 400 });
   }
 

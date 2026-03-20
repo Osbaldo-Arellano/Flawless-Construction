@@ -152,8 +152,8 @@ export function ContactStacked() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="csPhone" className="font-medium">Phone (Optional)</Label>
-                      <Input id="csPhone" name="phone" type="tel" placeholder="+1 (555) 123-4567" className="bg-muted/40 dark:bg-background border-border focus:bg-background" />
+                      <Label htmlFor="csPhone" className="font-medium">Phone</Label>
+                      <Input id="csPhone" name="phone" type="tel" placeholder="+1 (555) 123-4567" required className="bg-muted/40 dark:bg-background border-border focus:bg-background" />
                     </div>
 
                     <div className="space-y-2">

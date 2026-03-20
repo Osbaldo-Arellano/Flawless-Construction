@@ -78,8 +78,8 @@ export function ContactSplitForm() {
 
         {/* Split card */}
         <div className="grid lg:grid-cols-[5fr_7fr] overflow-hidden border border-border shadow-2xl">
-          {/* Left — dark info panel */}
-          <div className="relative bg-foreground text-background px-8 sm:px-10 py-12 lg:py-16 flex flex-col justify-between overflow-hidden">
+          {/* Left — dark info panel (below form on mobile, left on desktop) */}
+          <div className="relative bg-foreground text-background px-8 sm:px-10 py-12 lg:py-16 flex flex-col justify-between overflow-hidden order-last lg:order-first">
             {/* Grid texture */}
             <div
               className="absolute inset-0 opacity-[0.04] pointer-events-none"
@@ -176,8 +176,8 @@ export function ContactSplitForm() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <Label htmlFor="sfPhone" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Phone <span className="normal-case font-normal text-muted-foreground/60">(optional)</span></Label>
-                    <Input id="sfPhone" name="phone" type="tel" />
+                    <Label htmlFor="sfPhone" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Phone</Label>
+                    <Input id="sfPhone" name="phone" type="tel" required />
                   </div>
 
                   <div className="space-y-2">

@@ -78,7 +78,7 @@ export async function generateMetadata(): Promise<Metadata> {
       const client = createClient(supabaseUrl, supabaseKey);
       const { data } = await client
         .from("brands")
-        .select("name, tagline, logo_variants, icon_url, website_url")
+        .select("name, tagline, logo_variants, icon_url, logo_url, website_url")
         .eq("user_id", userId)
         .single();
 
@@ -86,7 +86,7 @@ export async function generateMetadata(): Promise<Metadata> {
       if (data?.tagline) siteDescription = data.tagline;
       if (data?.website_url) SITE_URL = data.website_url;
       const variants = data?.logo_variants ?? {};
-      const remote = variants.favicon ?? data?.icon_url ?? variants.primary ?? variants.light ?? null;
+      const remote = data?.icon_url ?? variants.favicon ?? variants.primary ?? variants.light ?? data?.logo_url ?? null;
       if (remote) faviconUrl = remote;
     } catch {
       // fall back to defaults
