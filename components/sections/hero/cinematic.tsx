@@ -500,6 +500,14 @@ export function HeroCinematic() {
               {brand.hero.overlayCard.type === "estimate-form" ? (
                 /* ── Free Estimate Form ─────────────────────────────── */
                 <div className="relative bg-white   shadow-2xl overflow-hidden">
+                  {/* Focus absorber — prevents mobile browsers from auto-focusing
+                      the first real input when the card is tapped */}
+                  <input
+                    aria-hidden="true"
+                    readOnly
+                    tabIndex={-1}
+                    style={{ position: "absolute", opacity: 0, height: 0, width: 0, pointerEvents: "none" }}
+                  />
                   {/* Top accent bar */}
                   <div className="h-1 w-full bg-gradient-to-r from-primary via-primary/80 to-primary/60" />
 
