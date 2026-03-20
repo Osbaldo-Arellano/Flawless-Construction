@@ -88,7 +88,7 @@ export function QuoteModal({ open, onOpenChange }: QuoteModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="sm:max-w-lg">
+      <DialogContent className="sm:max-w-lg" onOpenAutoFocus={(e) => e.preventDefault()}>
         {submitted ? (
           <div className="text-center py-12">
             <div className="w-16 h-16  bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-4">
