@@ -129,6 +129,12 @@
   body {
     @apply bg-background text-foreground font-sans font-normal;
   }
+  /* Prevent SVG icons from being event targets — fixes Firefox cross-origin
+     SVG security errors (correspondingUseElement / nodeType) that occur when
+     React's event delegation traverses through decorative icon elements. */
+  svg {
+    pointer-events: none;
+  }
 }
 
 /* ─── Hero: floating particles ─── */

@@ -205,7 +205,7 @@ export function HeroCinematic() {
           email: formEmail,
           phone: formPhone,
           services: formService ? [formService] : [],
-          message: "[Free Estimate Request from Hero]",
+          message: "[Free Estimate Request]",
           source: "contact",
           _hp: "",
           loadedAt,
@@ -475,21 +475,27 @@ export function HeroCinematic() {
 
             {/* Form — right column on desktop, bottom on mobile */}
             <div
-              className="self-start -ml-6 sm:-ml-8 lg:ml-0 lg:self-center w-full pr-8 sm:pr-10 lg:pr-0 lg:max-w-2xl 2xl:max-w-3xl transition-all duration-1000 ease-out"
-              style={{
-                opacity: mounted ? 1 : 0,
-                transform: mounted
-                  ? "translateY(0) translateX(0)"
-                  : "translateY(30px) translateX(20px)",
-                transitionDelay: "800ms",
-                ...(!isDesktop
+              className="self-start -ml-6 sm:-ml-8 lg:ml-0 lg:self-center w-full pr-8 sm:pr-10 lg:pr-0 lg:max-w-2xl 2xl:max-w-3xl"
+              style={
+                !isDesktop
                   ? {
+                      opacity: mounted ? 1 : 0,
+                      transform: mounted
+                        ? "translateY(0) translateX(0)"
+                        : "translateY(30px) translateX(20px)",
                       translate: cardSlideIn ? "0px" : "-100%",
                       transition:
-                        "translate 2.1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s",
+                        "opacity 1000ms ease-out 800ms, transform 1000ms ease-out 800ms, translate 2.1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s",
                     }
-                  : {}),
-              }}
+                  : {
+                      opacity: mounted ? 1 : 0,
+                      transform: mounted
+                        ? "translateY(0) translateX(0)"
+                        : "translateY(30px) translateX(20px)",
+                      transition:
+                        "opacity 1000ms ease-out 800ms, transform 1000ms ease-out 800ms",
+                    }
+              }
             >
               {brand.hero.overlayCard.type === "estimate-form" ? (
                 /* ── Free Estimate Form ─────────────────────────────── */

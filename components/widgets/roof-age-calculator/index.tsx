@@ -4,7 +4,6 @@ import { useState } from "react";
 import { X, ChevronRight } from "lucide-react";
 import { useBrand } from "@/contexts/brand-context";
 import { QuoteModal } from "@/components/sections/shared/quote-modal";
-import { useEmergencyStick } from "@/hooks/use-emergency-stick";
 
 const CURRENT_YEAR = new Date().getFullYear();
 const MIN_YEAR = 1970;
@@ -56,7 +55,6 @@ export function RoofAgeCalculator() {
   const { brand } = useBrand();
   const [open, setOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
-  const { tabTop, isTracking } = useEmergencyStick(-84);
   const [flow, setFlow] = useState<CalcFlow>("input");
   const [year, setYear] = useState(CURRENT_YEAR - 10);
 
@@ -219,11 +217,7 @@ export function RoofAgeCalculator() {
 
       {/* Left flush tab */}
       <div
-        className="fixed right-0 z-[60]"
-        style={{
-          top: tabTop !== null ? `${tabTop}px` : "calc(75% - 82px)",
-          transition: isTracking ? "none" : "top 0.3s ease",
-        }}
+        className="fixed right-0 z-[60]" style={{ top: "calc(75% - 82px)" }}
       >
         <button
           onClick={() => setOpen((o) => !o)}

@@ -4,7 +4,6 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { X, Send, Phone, ArrowRight, RotateCcw } from "lucide-react";
 import { useBrand } from "@/contexts/brand-context";
 import { QuoteModal } from "@/components/sections/shared/quote-modal";
-import { useEmergencyStick } from "@/hooks/use-emergency-stick";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type Flow =
@@ -48,7 +47,6 @@ export function RoofChatWidget() {
   const [formData, setFormData] = useState({ name: "", email: "" });
   const [inputVal, setInputVal] = useState("");
   const [openedAt] = useState(() => Date.now());
-  const { tabTop, isTracking } = useEmergencyStick(0);
 
   const msgIdRef = useRef(0);
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -395,11 +393,7 @@ export function RoofChatWidget() {
 
       {/* ── Trigger button ─────────────────────────────────────────────── */}
       <div
-        className="fixed right-0 z-[60]"
-        style={{
-          top: tabTop !== null ? `${tabTop}px` : "calc(75% + 2px)",
-          transition: isTracking ? "none" : "top 0.3s ease",
-        }}
+        className="fixed right-0 z-[60] top-[75%]"
       >
         {/* Pulsating rings — only when closed */}
         {!open && (
