@@ -51,11 +51,13 @@ export function HeroCinematic() {
   const [isDesktop, setIsDesktop] = useState(false);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [formFirstName, setFormFirstName] = useState("");
-  const [formLastName, setFormLastName]   = useState("");
-  const [formEmail, setFormEmail]         = useState("");
-  const [formPhone, setFormPhone]         = useState("");
-  const [formService, setFormService]     = useState("");
-  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [formLastName, setFormLastName] = useState("");
+  const [formEmail, setFormEmail] = useState("");
+  const [formPhone, setFormPhone] = useState("");
+  const [formService, setFormService] = useState("");
+  const [formStatus, setFormStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
   const formLoadedAt = useRef(Date.now());
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const [headlineHeight, setHeadlineHeight] = useState(0);
@@ -188,13 +190,13 @@ export function HeroCinematic() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           firstName: formFirstName,
-          lastName:  formLastName,
-          email:     formEmail,
-          phone:     formPhone,
-          services:  formService ? [formService] : [],
-          message:   "[Free Estimate Request from Hero]",
-          source:    "contact",
-          _hp:       "",
+          lastName: formLastName,
+          email: formEmail,
+          phone: formPhone,
+          services: formService ? [formService] : [],
+          message: "[Free Estimate Request from Hero]",
+          source: "contact",
+          _hp: "",
           loadedAt,
         }),
       });
@@ -296,9 +298,10 @@ export function HeroCinematic() {
                     transition: isDesktop
                       ? "all 1s cubic-bezier(0.22, 1, 0.36, 1)"
                       : "opacity 0.6s ease-out, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)",
-                    height: headlineHeight > 0
-                      ? headlineHeight * (isDesktop ? 0.85 : 1.466)
-                      : undefined,
+                    height:
+                      headlineHeight > 0
+                        ? headlineHeight * (isDesktop ? 0.85 : 1.466)
+                        : undefined,
                   }}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -344,12 +347,32 @@ export function HeroCinematic() {
                 className="text-sm sm:text-base lg:text-lg font-black text-gray-600 lg:text-white max-w-xl leading-relaxed transition-all duration-1000 ease-out lg:[text-shadow:none]"
                 style={{
                   opacity: textRevealed ? 1 : 0,
-                  transform: textRevealed ? "translateY(0)" : "translateY(20px)",
+                  transform: textRevealed
+                    ? "translateY(0)"
+                    : "translateY(20px)",
                   transitionDelay: `${headlineWords.length * 120 + 200}ms`,
                 }}
               >
                 {brand.hero.subheadline}
               </p>
+
+              {/* Mobile quick-nav pills */}
+              <div className="lg:hidden flex flex-row gap-3">
+                <a
+                  href="#why-us"
+                  className="inline-flex items-center justify-center gap-1.5 flex-1 rounded-full text-xs font-semibold h-9 px-3 bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm transition-all active:scale-95"
+                >
+                  Why Us?
+                  <ChevronDown className="w-3 h-3" />
+                </a>
+                <a
+                  href="#certifications"
+                  className="inline-flex items-center justify-center gap-1.5 flex-1 rounded-full text-xs font-semibold h-9 px-3 bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm transition-all active:scale-95"
+                >
+                  Certifications
+                  <ChevronDown className="w-3 h-3" />
+                </a>
+              </div>
 
               {/* Desktop CTAs + Stats — inside left column */}
               <div className="hidden lg:flex flex-col gap-8">
@@ -357,7 +380,9 @@ export function HeroCinematic() {
                   className="flex gap-4 transition-all duration-700 ease-out"
                   style={{
                     opacity: textRevealed ? 1 : 0,
-                    transform: textRevealed ? "translateY(0)" : "translateY(30px)",
+                    transform: textRevealed
+                      ? "translateY(0)"
+                      : "translateY(30px)",
                     transitionDelay: `${headlineWords.length * 120 + 400}ms`,
                   }}
                 >
@@ -389,193 +414,218 @@ export function HeroCinematic() {
                   className="text-sm sm:text-base text-white font-medium tracking-wide transition-all duration-700 ease-out"
                   style={{
                     opacity: textRevealed ? 1 : 0,
-                    transform: textRevealed ? "translateY(0)" : "translateY(20px)",
+                    transform: textRevealed
+                      ? "translateY(0)"
+                      : "translateY(20px)",
                     transitionDelay: `${headlineWords.length * 120 + 600}ms`,
                   }}
                 >
-                  100% Family Owned.&nbsp; 5-Star Reviewed.&nbsp; Local Expertise.
+                  100% Family Owned.&nbsp; 5-Star Reviewed.&nbsp; Local
+                  Expertise.
                 </p>
               </div>
             </div>
 
             {/* Form — right column on desktop, bottom on mobile */}
             <div
-                className="self-start -ml-6 sm:-ml-8 lg:ml-0 lg:self-center w-full pr-8 sm:pr-10 lg:pr-0 lg:max-w-2xl 2xl:max-w-3xl transition-all duration-1000 ease-out"
-                style={{
-                  opacity: mounted ? 1 : 0,
-                  transform: mounted
-                    ? "translateY(0) translateX(0)"
-                    : "translateY(30px) translateX(20px)",
-                  transitionDelay: "800ms",
-                }}
-              >
-                {brand.hero.overlayCard.type === "estimate-form" ? (
-                  /* ── Free Estimate Form ─────────────────────────────── */
-                  <div className="relative bg-white rounded-r-2xl lg:rounded-2xl shadow-2xl overflow-hidden">
-                    {/* Top accent bar */}
-                    <div className="h-1 w-full bg-gradient-to-r from-primary via-primary/80 to-primary/60" />
+              className="self-start -ml-6 sm:-ml-8 lg:ml-0 lg:self-center w-full pr-8 sm:pr-10 lg:pr-0 lg:max-w-2xl 2xl:max-w-3xl transition-all duration-1000 ease-out"
+              style={{
+                opacity: mounted ? 1 : 0,
+                transform: mounted
+                  ? "translateY(0) translateX(0)"
+                  : "translateY(30px) translateX(20px)",
+                transitionDelay: "800ms",
+              }}
+            >
+              {brand.hero.overlayCard.type === "estimate-form" ? (
+                /* ── Free Estimate Form ─────────────────────────────── */
+                <div className="relative bg-white rounded-r-2xl lg:rounded-2xl shadow-2xl overflow-hidden">
+                  {/* Top accent bar */}
+                  <div className="h-1 w-full bg-gradient-to-r from-primary via-primary/80 to-primary/60" />
 
-                    <div className="p-8 sm:p-10">
-                      {formStatus === "success" ? (
-                        <div className="flex flex-col items-center gap-4 py-8 text-center">
-                          <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
-                            <Check className="w-8 h-8 text-primary" />
-                          </div>
-                          <div>
-                            <p className="text-base font-bold text-gray-900">Request received!</p>
-                            <p className="text-sm text-gray-500 mt-1">We will reach out within a few hours.</p>
-                          </div>
-                          <a
-                            href={`tel:${brand.company.phone.replace(/\D/g, "")}`}
-                            className="text-sm text-primary hover:underline flex items-center gap-2 font-medium"
-                          >
-                            <Phone className="w-4 h-4" />
-                            {brand.company.phone}
-                          </a>
+                  <div className="p-8 sm:p-10">
+                    {formStatus === "success" ? (
+                      <div className="flex flex-col items-center gap-4 py-8 text-center">
+                        <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+                          <Check className="w-8 h-8 text-primary" />
                         </div>
-                      ) : (
-                        <form onSubmit={handleEstimateSubmit} className="flex flex-col gap-4">
-                          {/* Header */}
-                          <div className="mb-1">
-                            <p className="text-lg font-bold text-gray-900">
-                              {brand.hero.overlayCard.eyebrow}
-                            </p>
-                            <p className="text-sm text-gray-500 mt-1">
-                              {brand.hero.overlayCard.description}
-                            </p>
-                          </div>
-
-                          {/* Name row */}
-                          <div className="grid grid-cols-2 gap-3">
-                            <div className="flex flex-col gap-1.5">
-                              <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">First Name</label>
-                              <input
-                                type="text"
-                                required
-                                placeholder="Jane"
-                                value={formFirstName}
-                                onChange={(e) => setFormFirstName(e.target.value)}
-                                autoComplete="given-name"
-                                className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
-                              />
-                            </div>
-                            <div className="flex flex-col gap-1.5">
-                              <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Last Name</label>
-                              <input
-                                type="text"
-                                required
-                                placeholder="Smith"
-                                value={formLastName}
-                                onChange={(e) => setFormLastName(e.target.value)}
-                                autoComplete="family-name"
-                                className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
-                              />
-                            </div>
-                          </div>
-
-                          {/* Email */}
-                          <div className="flex flex-col gap-1.5">
-                            <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Email</label>
-                            <input
-                              type="email"
-                              required
-                              placeholder="jane@example.com"
-                              value={formEmail}
-                              onChange={(e) => setFormEmail(e.target.value)}
-                              autoComplete="email"
-                              className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
-                            />
-                          </div>
-
-                          {/* Phone */}
-                          <div className="flex flex-col gap-1.5">
-                            <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Phone</label>
-                            <input
-                              type="tel"
-                              required
-                              placeholder="(555) 000-0000"
-                              value={formPhone}
-                              onChange={(e) => setFormPhone(e.target.value)}
-                              autoComplete="tel"
-                              className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
-                            />
-                          </div>
-
-                          {/* Service dropdown */}
-                          <div className="flex flex-col gap-1.5">
-                            <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">What can we help you with?</label>
-                            <select
-                              required
-                              value={formService}
-                              onChange={(e) => setFormService(e.target.value)}
-                              className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all appearance-none cursor-pointer"
-                            >
-                              <option value="" disabled>Select a service...</option>
-                              <option value="New Roof">New Roof</option>
-                              <option value="Roof Repair">Roof Repair</option>
-                              <option value="Gutters">Gutters</option>
-                            </select>
-                          </div>
-
-                          {/* Submit */}
-                          <button
-                            type="submit"
-                            disabled={formStatus === "submitting"}
-                            className="mt-1 w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary text-primary-foreground text-base font-semibold hover:opacity-90 active:scale-[0.98] disabled:opacity-60 transition-all shadow-lg shadow-primary/20"
-                          >
-                            {formStatus === "submitting" ? (
-                              <Loader2 className="w-5 h-5 animate-spin" />
-                            ) : (
-                              <>
-                                Get My Free Estimate
-                                <ArrowRight className="w-4 h-4" />
-                              </>
-                            )}
-                          </button>
-
-                          {formStatus === "error" && (
-                            <p className="text-sm text-red-500 text-center">
-                              Something went wrong. Call us at{" "}
-                              <a href={`tel:${brand.company.phone.replace(/\D/g, "")}`} className="underline font-medium">
-                                {brand.company.phone}
-                              </a>
-                            </p>
-                          )}
-                        </form>
-                      )}
-                    </div>
-                  </div>
-                ) : (
-                  /* ── Default content card ───────────────────────────── */
-                  <div className="relative bg-white/[0.07] backdrop-blur-xl border border-white/[0.1] rounded-xl p-5 2xl:p-7 space-y-4 overflow-hidden group/card hover:border-white/[0.18] transition-colors duration-500">
-                    <div className="absolute -top-12 -right-12 w-24 h-24 bg-white/10 rounded-full blur-2xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
-                    <div className="flex items-center gap-2 relative">
-                      <Sparkles className="w-3 h-3 text-white/50" />
-                      <span className="text-xs font-semibold uppercase tracking-widest text-white/80">
-                        {brand.hero.overlayCard.eyebrow}
-                      </span>
-                    </div>
-
-                    <p className="text-sm 2xl:text-base text-white/80 leading-relaxed relative">
-                      {brand.hero.overlayCard.description}
-                    </p>
-
-                    <div className="flex gap-2 relative">
-                      {brand.hero.overlayCard.buttons.map((btn) => (
-                        <Link
-                          key={btn.href}
-                          href={btn.href}
-                          className="group/link inline-flex items-center gap-1.5 px-4 2xl:px-5 py-2 2xl:py-2.5 text-xs 2xl:text-sm font-medium text-white border border-white/20 rounded-lg hover:bg-white/10 hover:border-white/30 transition-all duration-300"
+                        <div>
+                          <p className="text-base font-bold text-gray-900">
+                            Request received!
+                          </p>
+                          <p className="text-sm text-gray-500 mt-1">
+                            We will reach out within a few hours.
+                          </p>
+                        </div>
+                        <a
+                          href={`tel:${brand.company.phone.replace(/\D/g, "")}`}
+                          className="text-sm text-primary hover:underline flex items-center gap-2 font-medium"
                         >
-                          {btn.label}
-                          <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover/link:translate-x-0.5" />
-                        </Link>
-                      ))}
-                    </div>
+                          <Phone className="w-4 h-4" />
+                          {brand.company.phone}
+                        </a>
+                      </div>
+                    ) : (
+                      <form
+                        onSubmit={handleEstimateSubmit}
+                        className="flex flex-col gap-4"
+                      >
+                        {/* Header */}
+                        <div className="mb-1">
+                          <p className="text-lg font-bold text-gray-900">
+                            {brand.hero.overlayCard.eyebrow}
+                          </p>
+                          <p className="text-sm text-gray-500 mt-1">
+                            {brand.hero.overlayCard.description}
+                          </p>
+                        </div>
+
+                        {/* Name row */}
+                        <div className="grid grid-cols-2 gap-3">
+                          <div className="flex flex-col gap-1.5">
+                            <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                              First Name
+                            </label>
+                            <input
+                              type="text"
+                              required
+                              placeholder="Jane"
+                              value={formFirstName}
+                              onChange={(e) => setFormFirstName(e.target.value)}
+                              autoComplete="given-name"
+                              className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
+                            />
+                          </div>
+                          <div className="flex flex-col gap-1.5">
+                            <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                              Last Name
+                            </label>
+                            <input
+                              type="text"
+                              required
+                              placeholder="Smith"
+                              value={formLastName}
+                              onChange={(e) => setFormLastName(e.target.value)}
+                              autoComplete="family-name"
+                              className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Email */}
+                        <div className="flex flex-col gap-1.5">
+                          <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                            Email
+                          </label>
+                          <input
+                            type="email"
+                            required
+                            placeholder="jane@example.com"
+                            value={formEmail}
+                            onChange={(e) => setFormEmail(e.target.value)}
+                            autoComplete="email"
+                            className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
+                          />
+                        </div>
+
+                        {/* Phone */}
+                        <div className="flex flex-col gap-1.5">
+                          <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                            Phone
+                          </label>
+                          <input
+                            type="tel"
+                            required
+                            placeholder="(555) 000-0000"
+                            value={formPhone}
+                            onChange={(e) => setFormPhone(e.target.value)}
+                            autoComplete="tel"
+                            className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
+                          />
+                        </div>
+
+                        {/* Service dropdown */}
+                        <div className="flex flex-col gap-1.5">
+                          <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                            What can we help you with?
+                          </label>
+                          <select
+                            required
+                            value={formService}
+                            onChange={(e) => setFormService(e.target.value)}
+                            className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all appearance-none cursor-pointer"
+                          >
+                            <option value="" disabled>
+                              Select a service...
+                            </option>
+                            <option value="New Roof">New Roof</option>
+                            <option value="Roof Repair">Roof Repair</option>
+                            <option value="Gutters">Gutters</option>
+                          </select>
+                        </div>
+
+                        {/* Submit */}
+                        <button
+                          type="submit"
+                          disabled={formStatus === "submitting"}
+                          className="mt-1 w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary text-primary-foreground text-base font-semibold hover:opacity-90 active:scale-[0.98] disabled:opacity-60 transition-all shadow-lg shadow-primary/20"
+                        >
+                          {formStatus === "submitting" ? (
+                            <Loader2 className="w-5 h-5 animate-spin" />
+                          ) : (
+                            <>
+                              Get My Free Estimate
+                              <ArrowRight className="w-4 h-4" />
+                            </>
+                          )}
+                        </button>
+
+                        {formStatus === "error" && (
+                          <p className="text-sm text-red-500 text-center">
+                            Something went wrong. Call us at{" "}
+                            <a
+                              href={`tel:${brand.company.phone.replace(/\D/g, "")}`}
+                              className="underline font-medium"
+                            >
+                              {brand.company.phone}
+                            </a>
+                          </p>
+                        )}
+                      </form>
+                    )}
                   </div>
-                )}
-              </div>
+                </div>
+              ) : (
+                /* ── Default content card ───────────────────────────── */
+                <div className="relative bg-white/[0.07] backdrop-blur-xl border border-white/[0.1] rounded-xl p-5 2xl:p-7 space-y-4 overflow-hidden group/card hover:border-white/[0.18] transition-colors duration-500">
+                  <div className="absolute -top-12 -right-12 w-24 h-24 bg-white/10 rounded-full blur-2xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+                  <div className="flex items-center gap-2 relative">
+                    <Sparkles className="w-3 h-3 text-white/50" />
+                    <span className="text-xs font-semibold uppercase tracking-widest text-white/80">
+                      {brand.hero.overlayCard.eyebrow}
+                    </span>
+                  </div>
+
+                  <p className="text-sm 2xl:text-base text-white/80 leading-relaxed relative">
+                    {brand.hero.overlayCard.description}
+                  </p>
+
+                  <div className="flex gap-2 relative">
+                    {brand.hero.overlayCard.buttons.map((btn) => (
+                      <Link
+                        key={btn.href}
+                        href={btn.href}
+                        className="group/link inline-flex items-center gap-1.5 px-4 2xl:px-5 py-2 2xl:py-2.5 text-xs 2xl:text-sm font-medium text-white border border-white/20 rounded-lg hover:bg-white/10 hover:border-white/30 transition-all duration-300"
+                      >
+                        {btn.label}
+                        <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover/link:translate-x-0.5" />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -608,7 +658,9 @@ export function HeroCinematic() {
         <div className="flex flex-row gap-3">
           <div className="flex flex-col justify-center shrink-0">
             <p className="text-xs font-medium text-muted-foreground leading-relaxed">
-              100% Family Owned.{" "}<br />5-Star Reviewed.{" "}<br />Local Expertise.
+              100% Family Owned. <br />
+              5-Star Reviewed. <br />
+              Local Expertise.
             </p>
           </div>
 

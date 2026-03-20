@@ -36,7 +36,7 @@ export function WhyUsCards() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-20 lg:py-32 bg-background overflow-hidden">
+    <section id="why-us" className="scroll-mt-28 py-20 lg:py-32 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
         <AnimateOnScroll animation="fade-up" triggerOnce={false}>
           <div className="text-center max-w-2xl mx-auto mb-14">
