@@ -258,7 +258,7 @@ export function NavbarDefault() {
           mobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="relative bg-white shadow-xl">
+        <div className="relative bg-background dark:bg-card shadow-xl border-t border-border/20">
           <div className="container mx-auto px-4 pt-2 pb-5 space-y-1">
             {brand.navigation.links.map((link, i) => (
               <Link

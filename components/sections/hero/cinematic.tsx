@@ -499,7 +499,7 @@ export function HeroCinematic() {
             >
               {brand.hero.overlayCard.type === "estimate-form" ? (
                 /* ── Free Estimate Form ─────────────────────────────── */
-                <div className="relative bg-white   shadow-2xl overflow-hidden">
+                <div className="relative bg-background dark:bg-card shadow-2xl overflow-hidden">
                   {/* Top accent bar */}
                   <div className="h-1 w-full bg-gradient-to-r from-primary via-primary/80 to-primary/60" />
 
@@ -510,10 +510,10 @@ export function HeroCinematic() {
                           <Check className="w-8 h-8 text-primary" />
                         </div>
                         <div>
-                          <p className="text-base font-bold text-gray-900">
+                          <p className="text-base font-bold text-foreground">
                             Request received!
                           </p>
-                          <p className="text-sm text-gray-500 mt-1">
+                          <p className="text-sm text-muted-foreground mt-1">
                             We will reach out soon.
                           </p>
                         </div>
@@ -532,10 +532,10 @@ export function HeroCinematic() {
                       >
                         {/* Header */}
                         <div className="mb-1">
-                          <p className="text-lg font-bold text-gray-900">
+                          <p className="text-lg font-bold text-foreground">
                             {brand.hero.overlayCard.eyebrow}
                           </p>
-                          <p className="text-sm text-gray-500 mt-1">
+                          <p className="text-sm text-muted-foreground mt-1">
                             {brand.hero.overlayCard.description}
                           </p>
                         </div>
@@ -543,7 +543,7 @@ export function HeroCinematic() {
                         {/* Name row */}
                         <div className="grid grid-cols-2 gap-3">
                           <div className="flex flex-col gap-1.5">
-                            <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                            <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
                               First Name
                             </label>
                             <input
@@ -553,11 +553,11 @@ export function HeroCinematic() {
                               value={formFirstName}
                               onChange={(e) => setFormFirstName(e.target.value)}
                               autoComplete="given-name"
-                              className="w-full bg-gray-50 border border-gray-200  px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
+                              className="w-full bg-muted/40 border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
                             />
                           </div>
                           <div className="flex flex-col gap-1.5">
-                            <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                            <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
                               Last Name
                             </label>
                             <input
@@ -567,14 +567,14 @@ export function HeroCinematic() {
                               value={formLastName}
                               onChange={(e) => setFormLastName(e.target.value)}
                               autoComplete="family-name"
-                              className="w-full bg-gray-50 border border-gray-200  px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
+                              className="w-full bg-muted/40 border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
                             />
                           </div>
                         </div>
 
                         {/* Email */}
                         <div className="flex flex-col gap-1.5">
-                          <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                          <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
                             Email
                           </label>
                           <input
@@ -584,13 +584,13 @@ export function HeroCinematic() {
                             value={formEmail}
                             onChange={(e) => setFormEmail(e.target.value)}
                             autoComplete="email"
-                            className="w-full bg-gray-50 border border-gray-200  px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
+                            className="w-full bg-muted/40 border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
                           />
                         </div>
 
                         {/* Phone */}
                         <div className="flex flex-col gap-1.5">
-                          <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                          <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
                             Phone
                           </label>
                           <input
@@ -600,20 +600,20 @@ export function HeroCinematic() {
                             value={formPhone}
                             onChange={(e) => setFormPhone(e.target.value)}
                             autoComplete="tel"
-                            className="w-full bg-gray-50 border border-gray-200  px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
+                            className="w-full bg-muted/40 border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
                           />
                         </div>
 
                         {/* Service dropdown */}
                         <div className="flex flex-col gap-1.5">
-                          <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                          <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
                             What can we help you with?
                           </label>
                           <select
                             required
                             value={formService}
                             onChange={(e) => setFormService(e.target.value)}
-                            className="w-full bg-gray-50 border border-gray-200  px-4 py-3 text-sm text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all appearance-none cursor-pointer"
+                            className="w-full bg-muted/40 border border-border px-4 py-3 text-sm text-foreground focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all appearance-none cursor-pointer"
                           >
                             <option value="" disabled>
                               Select a service...
