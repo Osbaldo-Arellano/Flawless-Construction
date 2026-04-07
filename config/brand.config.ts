@@ -150,7 +150,7 @@ export const brandConfig = {
         logo: "/roofer-pro/Energry_Trust.png",
         logoAlt: "Trade Ally of Energy Trust of Oregon",
         description:
-          "As an Energy Trust Trade Ally, we help Oregon homeowners access cash incentives for qualifying energy-efficient roofing and insulation improvements. We handle the paperwork.",
+          "We are working with Energy Trust of Oregon to help you reduce energy costs and increase energy savings",
       },
       {
         name: "Oregon Housing & Community Services Department Partner",

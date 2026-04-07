@@ -152,6 +152,9 @@ export interface BrandState {
       logo: string;
       logoAlt: string;
       description: string;
+      partnerUrl?: string;
+      tagline?: string;
+      logoBlackWhite?: boolean;
     }>;
   } | null;
   harp?: {

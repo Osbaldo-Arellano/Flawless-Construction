@@ -44,7 +44,6 @@ export function CertificationsDefault() {
         <div className="sm:hidden border border-border divide-y divide-border">
           {items.map((item, i) => {
             const isOpen = openIndex === i;
-            const extItem = item as typeof item & { partnerUrl?: string; tagline?: string; logoBlackWhite?: boolean };
             return (
               <div key={item.name}>
                 <button
@@ -53,13 +52,13 @@ export function CertificationsDefault() {
                   aria-expanded={isOpen}
                 >
                   {item.logo && (
-                    <div className={`shrink-0 w-10 h-10 flex items-center justify-center ${extItem.logoBlackWhite ? "bg-white p-1" : ""}`}>
+                    <div className={`shrink-0 w-10 h-10 flex items-center justify-center ${item.logoBlackWhite ? "bg-white p-1" : ""}`}>
                       <Image
                         src={item.logo}
                         alt={item.logoAlt}
                         width={40}
                         height={40}
-                        className={`object-contain max-h-10 w-auto${extItem.logoBlackWhite ? " grayscale brightness-0" : ""}`}
+                        className={`object-contain max-h-10 w-auto${item.logoBlackWhite ? " grayscale brightness-0" : ""}`}
                       />
                     </div>
                   )}
@@ -75,19 +74,19 @@ export function CertificationsDefault() {
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         {item.description}
                       </p>
-                      {extItem.tagline && (
+                      {item.tagline && (
                         <p className="mt-3 text-xs text-muted-foreground/80 italic leading-relaxed border-l-2 border-primary/40 pl-3">
-                          {extItem.tagline}
+                          {item.tagline}
                         </p>
                       )}
-                      {extItem.partnerUrl && (
+                      {item.partnerUrl && (
                         <Link
-                          href={extItem.partnerUrl}
+                          href={item.partnerUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="mt-3 inline-block text-xs text-primary underline underline-offset-2 hover:text-primary/80 transition-colors"
                         >
-                          {extItem.partnerUrl}
+                          {item.partnerUrl}
                         </Link>
                       )}
                     </div>
@@ -100,68 +99,65 @@ export function CertificationsDefault() {
 
         {/* Desktop: cards grid */}
         <div className="hidden sm:grid sm:grid-cols-2 gap-6 lg:gap-8">
-          {items.map((item, i) => {
-            const extItem = item as typeof item & { partnerUrl?: string; tagline?: string; logoBlackWhite?: boolean };
-            return (
-              <AnimateOnScroll key={item.name} animation="fade-up" delay={i * 80}>
-                <div className="flex flex-col gap-5 p-6 lg:p-8 border border-border bg-card h-full">
-                  {item.logo && (
-                    <div className="h-14 flex items-center">
-                      {extItem.partnerUrl ? (
-                        <Link
-                          href={extItem.partnerUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`Visit Energy Trust of Oregon website`}
-                        >
-                          <div className={`flex items-center justify-center${extItem.logoBlackWhite ? " bg-white p-3" : ""}`}>
-                            <Image
-                              src={item.logo}
-                              alt={item.logoAlt}
-                              width={160}
-                              height={56}
-                              className={`object-contain object-left max-h-14 w-auto${extItem.logoBlackWhite ? " grayscale brightness-0" : ""}`}
-                            />
-                          </div>
-                        </Link>
-                      ) : (
-                        <Image
-                          src={item.logo}
-                          alt={item.logoAlt}
-                          width={160}
-                          height={56}
-                          className="object-contain object-left max-h-14 w-auto"
-                        />
-                      )}
-                    </div>
-                  )}
-                  <div className="flex flex-col gap-2 flex-1">
-                    <h3 className="text-base font-semibold text-foreground leading-snug">
-                      {item.name}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {item.description}
-                    </p>
-                    {extItem.tagline && (
-                      <p className="mt-1 text-xs text-muted-foreground/80 italic leading-relaxed border-l-2 border-primary/40 pl-3">
-                        {extItem.tagline}
-                      </p>
-                    )}
-                    {extItem.partnerUrl && (
+          {items.map((item, i) => (
+            <AnimateOnScroll key={item.name} animation="fade-up" delay={i * 80}>
+              <div className="flex flex-col gap-5 p-6 lg:p-8 border border-border bg-card h-full">
+                {item.logo && (
+                  <div className="h-14 flex items-center">
+                    {item.partnerUrl ? (
                       <Link
-                        href={extItem.partnerUrl}
+                        href={item.partnerUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-1 text-xs text-primary underline underline-offset-2 hover:text-primary/80 transition-colors self-start"
+                        aria-label={`Visit ${item.name} website`}
                       >
-                        {extItem.partnerUrl}
+                        <div className={`flex items-center justify-center${item.logoBlackWhite ? " bg-white p-3" : ""}`}>
+                          <Image
+                            src={item.logo}
+                            alt={item.logoAlt}
+                            width={160}
+                            height={56}
+                            className={`object-contain object-left max-h-14 w-auto${item.logoBlackWhite ? " grayscale brightness-0" : ""}`}
+                          />
+                        </div>
                       </Link>
+                    ) : (
+                      <Image
+                        src={item.logo}
+                        alt={item.logoAlt}
+                        width={160}
+                        height={56}
+                        className="object-contain object-left max-h-14 w-auto"
+                      />
                     )}
                   </div>
+                )}
+                <div className="flex flex-col gap-2 flex-1">
+                  <h3 className="text-base font-semibold text-foreground leading-snug">
+                    {item.name}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                  {item.tagline && (
+                    <p className="mt-1 text-xs text-muted-foreground/80 italic leading-relaxed border-l-2 border-primary/40 pl-3">
+                      {item.tagline}
+                    </p>
+                  )}
+                  {item.partnerUrl && (
+                    <Link
+                      href={item.partnerUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 text-xs text-primary underline underline-offset-2 hover:text-primary/80 transition-colors self-start"
+                    >
+                      {item.partnerUrl}
+                    </Link>
+                  )}
                 </div>
-              </AnimateOnScroll>
-            );
-          })}
+              </div>
+            </AnimateOnScroll>
+          ))}
         </div>
       </div>
     </section>
