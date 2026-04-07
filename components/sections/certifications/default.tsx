@@ -52,7 +52,7 @@ export function CertificationsDefault() {
                   aria-expanded={isOpen}
                 >
                   {item.logo && (
-                    <div className={`shrink-0 w-10 h-10 flex items-center justify-center ${item.logoBlackWhite ? "bg-white p-1" : ""}`}>
+                    <div className={`shrink-0 flex items-center justify-center ${item.logoBlackWhite ? "bg-white p-2 w-14 h-14" : "w-10 h-10"}`}>
                       <Image
                         src={item.logo}
                         alt={item.logoAlt}
@@ -111,7 +111,7 @@ export function CertificationsDefault() {
                         rel="noopener noreferrer"
                         aria-label={`Visit ${item.name} website`}
                       >
-                        <div className={`flex items-center justify-center${item.logoBlackWhite ? " bg-white p-3" : ""}`}>
+                        <div className={`flex items-center justify-center${item.logoBlackWhite ? " bg-white p-4" : ""}`}>
                           <Image
                             src={item.logo}
                             alt={item.logoAlt}
