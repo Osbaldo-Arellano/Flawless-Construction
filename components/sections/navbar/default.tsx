@@ -186,7 +186,7 @@ export function NavbarDefault() {
         >
           <ThemeToggle />
           <Link
-            href="https://conducivelogic.com/"
+            href="https://hustlerunner.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground/30 hover:text-muted-foreground hover:rotate-90 transition-all duration-500"
